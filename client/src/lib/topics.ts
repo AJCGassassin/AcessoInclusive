@@ -152,14 +152,106 @@ export const topics = [
     description: "Como implementar navegação completa por teclado em sua aplicação web",
     sections: [
       { id: "focus", title: "Gerenciamento de Foco", level: 1 },
-      { id: "shortcuts", title: "Atalhos de Teclado", level: 1 }
+      { id: "browser-shortcuts", title: "Atalhos do Navegador", level: 1 },
+      { id: "system-shortcuts", title: "Atalhos do Sistema", level: 1 },
+      { id: "page-navigation", title: "Navegação na Página", level: 1 },
+      { id: "shortcuts", title: "Implementando Atalhos", level: 1 }
     ],
     content: `
       <h2 id="focus">Gerenciamento de Foco</h2>
-      <p>O foco do teclado deve ser sempre visível e seguir uma ordem lógica de navegação.</p>
+      <p>O foco do teclado deve ser sempre visível e seguir uma ordem lógica de navegação. Alguns pontos importantes:</p>
+      <ul>
+        <li>Use outline ou outro indicador visual claro para mostrar o elemento em foco</li>
+        <li>Mantenha uma ordem de tabulação lógica (tabindex)</li>
+        <li>Evite remover o outline sem fornecer uma alternativa visível</li>
+        <li>Certifique-se que todos os elementos interativos são focáveis</li>
+      </ul>
 
-      <h2 id="shortcuts">Atalhos de Teclado</h2>
-      <p>Implemente atalhos de teclado úteis e documente-os claramente para os usuários.</p>
+      <h2 id="browser-shortcuts">Atalhos do Navegador</h2>
+      <p>Atalhos comuns que funcionam na maioria dos navegadores:</p>
+
+      <h3>Navegação entre Abas</h3>
+      <ul>
+        <li><kbd>Ctrl</kbd> + <kbd>Tab</kbd> - Próxima aba</li>
+        <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> - Aba anterior</li>
+        <li><kbd>Ctrl</kbd> + <kbd>1-8</kbd> - Ir para aba específica</li>
+        <li><kbd>Ctrl</kbd> + <kbd>9</kbd> - Ir para última aba</li>
+      </ul>
+
+      <h3>Navegação na Página</h3>
+      <ul>
+        <li><kbd>Ctrl</kbd> + <kbd>F</kbd> - Buscar na página</li>
+        <li><kbd>Ctrl</kbd> + <kbd>L</kbd> - Selecionar barra de endereço</li>
+        <li><kbd>Alt</kbd> + <kbd>←</kbd> - Voltar na história</li>
+        <li><kbd>Alt</kbd> + <kbd>→</kbd> - Avançar na história</li>
+        <li><kbd>F5</kbd> ou <kbd>Ctrl</kbd> + <kbd>R</kbd> - Recarregar página</li>
+      </ul>
+
+      <h2 id="system-shortcuts">Atalhos do Sistema</h2>
+      <p>Atalhos importantes do sistema operacional:</p>
+
+      <h3>Windows</h3>
+      <ul>
+        <li><kbd>Alt</kbd> + <kbd>Tab</kbd> - Alternar entre aplicativos</li>
+        <li><kbd>Windows</kbd> + <kbd>Tab</kbd> - Visualização de tarefas</li>
+        <li><kbd>Alt</kbd> + <kbd>F4</kbd> - Fechar aplicativo atual</li>
+        <li><kbd>Windows</kbd> + <kbd>M</kbd> - Minimizar todas as janelas</li>
+      </ul>
+
+      <h3>macOS</h3>
+      <ul>
+        <li><kbd>Cmd</kbd> + <kbd>Tab</kbd> - Alternar entre aplicativos</li>
+        <li><kbd>Cmd</kbd> + <kbd>Space</kbd> - Abrir Spotlight</li>
+        <li><kbd>Cmd</kbd> + <kbd>Q</kbd> - Fechar aplicativo atual</li>
+        <li><kbd>Cmd</kbd> + <kbd>M</kbd> - Minimizar janela atual</li>
+      </ul>
+
+      <h2 id="page-navigation">Navegação na Página</h2>
+      <p>Teclas essenciais para navegar dentro de uma página web:</p>
+      <ul>
+        <li><kbd>Tab</kbd> - Avançar para próximo elemento interativo</li>
+        <li><kbd>Shift</kbd> + <kbd>Tab</kbd> - Voltar para elemento anterior</li>
+        <li><kbd>Space</kbd> ou <kbd>Enter</kbd> - Ativar elemento selecionado</li>
+        <li><kbd>Page Up</kbd>/<kbd>Page Down</kbd> - Rolar página</li>
+        <li><kbd>Home</kbd>/<kbd>End</kbd> - Ir para início/fim da página</li>
+      </ul>
+
+      <h3>Navegação por Cabeçalhos</h3>
+      <p>Em leitores de tela:</p>
+      <ul>
+        <li><kbd>H</kbd> - Próximo cabeçalho</li>
+        <li><kbd>1-6</kbd> - Próximo cabeçalho de nível específico</li>
+        <li><kbd>Shift</kbd> + <kbd>H</kbd> - Cabeçalho anterior</li>
+      </ul>
+
+      <h2 id="shortcuts">Implementando Atalhos</h2>
+      <p>Ao implementar atalhos de teclado em sua aplicação:</p>
+      <ul>
+        <li>Evite conflitos com atalhos do navegador e do sistema</li>
+        <li>Forneça uma maneira de visualizar e personalizar atalhos</li>
+        <li>Use combinações intuitivas e consistentes</li>
+        <li>Documente todos os atalhos disponíveis</li>
+      </ul>
+
+      <h3>Exemplo de Implementação</h3>
+      <pre><code class="language-javascript">
+// Exemplo de implementação de atalhos de teclado
+document.addEventListener('keydown', (e) => {
+  // Ctrl/Cmd + /
+  if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+    e.preventDefault();
+    // Abrir ajuda com atalhos
+    toggleShortcutsHelp();
+  }
+});
+      </code></pre>
+
+      <div class="bg-muted p-4 rounded-lg mt-4">
+        <h3 class="text-lg font-medium mb-2">Dica de Acessibilidade</h3>
+        <p>Ao implementar atalhos de teclado, sempre considere usuários que podem ter dificuldades motoras. 
+        Evite combinações que exijam pressionar muitas teclas simultaneamente e forneça alternativas para 
+        ações importantes.</p>
+      </div>
     `
   },
   {
