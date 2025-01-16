@@ -260,14 +260,158 @@ document.addEventListener('keydown', (e) => {
     description: "Boas práticas para garantir compatibilidade com leitores de tela",
     sections: [
       { id: "aria", title: "Atributos ARIA", level: 1 },
-      { id: "semantics", title: "HTML Semântico", level: 1 }
+      { id: "live-regions", title: "Regiões Live", level: 2 },
+      { id: "roles", title: "Roles e Estados", level: 2 },
+      { id: "semantics", title: "HTML Semântico", level: 1 },
+      { id: "headings", title: "Estrutura de Cabeçalhos", level: 2 },
+      { id: "landmarks", title: "Pontos de Referência", level: 2 },
+      { id: "forms", title: "Formulários Acessíveis", level: 1 },
+      { id: "testing", title: "Testando com Leitores de Tela", level: 1 }
     ],
     content: `
       <h2 id="aria">Atributos ARIA</h2>
-      <p>Use atributos ARIA apropriadamente para melhorar a acessibilidade do seu conteúdo.</p>
+      <p>ARIA (Accessible Rich Internet Applications) é um conjunto de atributos que define maneiras de tornar o conteúdo web mais acessível para pessoas com deficiências. Aqui estão as principais categorias:</p>
+
+      <h3 id="live-regions">Regiões Live</h3>
+      <p>Regiões live são áreas da página que são atualizadas dinamicamente e precisam ser anunciadas por leitores de tela:</p>
+      <pre><code class="language-html">
+<!-- Anúncio imediato de atualizações -->
+<div aria-live="assertive" aria-atomic="true">
+  Mensagem importante que precisa ser anunciada
+</div>
+
+<!-- Anúncio com prioridade mais baixa -->
+<div aria-live="polite" aria-atomic="true">
+  Atualizações de status menos urgentes
+</div>
+      </code></pre>
+
+      <h3 id="roles">Roles e Estados</h3>
+      <p>Use roles para definir o papel de um elemento e estados para informar sua condição atual:</p>
+      <pre><code class="language-html">
+<!-- Menu de navegação -->
+<nav role="navigation" aria-label="Menu principal">
+  <ul role="menubar">
+    <li role="menuitem" aria-current="page">Página Atual</li>
+  </ul>
+</nav>
+
+<!-- Diálogo modal -->
+<div role="dialog" aria-labelledby="dialog-title" aria-modal="true">
+  <h2 id="dialog-title">Título do Diálogo</h2>
+</div>
+      </code></pre>
 
       <h2 id="semantics">HTML Semântico</h2>
-      <p>Utilize elementos HTML semânticos para criar uma estrutura clara e acessível.</p>
+      <p>O uso correto de elementos HTML semânticos é fundamental para acessibilidade:</p>
+
+      <h3 id="headings">Estrutura de Cabeçalhos</h3>
+      <p>Mantenha uma hierarquia lógica de cabeçalhos:</p>
+      <pre><code class="language-html">
+<h1>Título Principal da Página</h1>
+<section>
+  <h2>Seção Principal</h2>
+  <article>
+    <h3>Subseção</h3>
+    <h4>Tópico Específico</h4>
+  </article>
+</section>
+      </code></pre>
+
+      <h3 id="landmarks">Pontos de Referência</h3>
+      <p>Use elementos semânticos para definir regiões importantes da página:</p>
+      <pre><code class="language-html">
+<header role="banner">
+  <!-- Cabeçalho do site -->
+</header>
+
+<nav role="navigation">
+  <!-- Navegação principal -->
+</nav>
+
+<main role="main">
+  <!-- Conteúdo principal -->
+</main>
+
+<aside role="complementary">
+  <!-- Conteúdo relacionado -->
+</aside>
+
+<footer role="contentinfo">
+  <!-- Rodapé do site -->
+</footer>
+      </code></pre>
+
+      <h2 id="forms">Formulários Acessíveis</h2>
+      <p>Dicas para criar formulários acessíveis:</p>
+      <ul>
+        <li>Use elementos label corretamente associados</li>
+        <li>Forneça mensagens de erro claras</li>
+        <li>Agrupe campos relacionados com fieldset</li>
+        <li>Use atributos aria-required e aria-invalid</li>
+      </ul>
+
+      <pre><code class="language-html">
+<form>
+  <div>
+    <label for="name">Nome:</label>
+    <input 
+      id="name" 
+      type="text" 
+      aria-required="true"
+      aria-invalid="false"
+      aria-describedby="name-error"
+    >
+    <div id="name-error" role="alert"></div>
+  </div>
+
+  <fieldset>
+    <legend>Informações de Contato</legend>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email">
+    </div>
+    <div>
+      <label for="phone">Telefone:</label>
+      <input id="phone" type="tel">
+    </div>
+  </fieldset>
+</form>
+      </code></pre>
+
+      <h2 id="testing">Testando com Leitores de Tela</h2>
+      <p>É importante testar seu site com diferentes leitores de tela:</p>
+      <ul>
+        <li><strong>NVDA (Windows)</strong> - Leitor de tela gratuito e open source</li>
+        <li><strong>VoiceOver (macOS/iOS)</strong> - Integrado ao sistema</li>
+        <li><strong>JAWS (Windows)</strong> - Leitor de tela profissional</li>
+        <li><strong>TalkBack (Android)</strong> - Leitor de tela para dispositivos Android</li>
+      </ul>
+
+      <h3>Checklist de Testes</h3>
+      <ul>
+        <li>Verifique se todos os elementos interativos são anunciados corretamente</li>
+        <li>Confirme se a ordem de leitura faz sentido</li>
+        <li>Teste a navegação por teclado</li>
+        <li>Verifique se as atualizações dinâmicas são anunciadas</li>
+        <li>Teste diferentes navegadores e leitores de tela</li>
+      </ul>
+
+      <div class="bg-muted p-4 rounded-lg mt-4">
+        <h3 class="text-lg font-medium mb-2">Recursos Adicionais</h3>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank">ARIA Authoring Practices Guide (APG)</a></li>
+          <li><a href="https://webaim.org/articles/screenreader_testing/" target="_blank">WebAIM: Testing with Screen Readers</a></li>
+          <li><a href="https://www.nvaccess.org/" target="_blank">NVDA Screen Reader</a></li>
+        </ul>
+      </div>
+
+      <div class="bg-muted p-4 rounded-lg mt-4">
+        <h3 class="text-lg font-medium mb-2">Dica de Desenvolvimento</h3>
+        <p>Durante o desenvolvimento, use a extensão WAVE (Web Accessibility Evaluation Tool) 
+        do navegador para identificar problemas comuns de acessibilidade e verificar se seus 
+        elementos ARIA estão sendo implementados corretamente.</p>
+      </div>
     `
   }
 ];
