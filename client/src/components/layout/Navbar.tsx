@@ -13,9 +13,9 @@ export default function Navbar() {
     <header className="border-b">
       <div className="container mx-auto px-4 h-16 flex items-center gap-4">
         <Link href="/">
-          <a className="text-2xl font-bold text-primary">
+          <span className="text-2xl font-bold text-primary cursor-pointer">
             Guia de Acessibilidade
-          </a>
+          </span>
         </Link>
 
         <NavigationMenu className="ml-4">
@@ -28,12 +28,12 @@ export default function Navbar() {
                     <li key={topic.id}>
                       <NavigationMenuLink asChild>
                         <Link href={`/topic/${topic.id}`}>
-                          <a className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer">
                             <div className="text-sm font-medium leading-none">{topic.title}</div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                               {topic.description}
                             </p>
-                          </a>
+                          </div>
                         </Link>
                       </NavigationMenuLink>
                     </li>
