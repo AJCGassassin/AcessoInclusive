@@ -1,5 +1,583 @@
 export const topics = [
   {
+    id: "accessibility-guidelines",
+    title: "Diretrizes de Acessibilidade",
+    description:
+      "Recomendações para garantir acessibilidade em aplicações web, com base no eMAG e WCAG 2.0",
+    sections: [
+      { id: "1", title: "Organização e Navegação Compreensíveis", level: 1 },
+      { id: "2", title: "Títulos Claros e Objetivos", level: 1 },
+      { id: "3", title: "Orientações Não Sensoriais", level: 1 },
+      { id: "4", title: "Conteúdo Visual com Descrições Textuais", level: 1 },
+      { id: "5", title: "Consistência na Interação", level: 1 },
+      { id: "6", title: "Minimização de Redundâncias", level: 1 },
+      { id: "7", title: "Clareza em Mensagens de Erro", level: 1 },
+      { id: "8", title: "Links Descritivos", level: 1 },
+      { id: "9", title: "Controle Flexível de Interação", level: 1 },
+      { id: "10", title: "Navegação por Teclado", level: 1 },
+      { id: "11", title: "Ignorar Repetições", level: 1 },
+      { id: "12", title: "Ajuste de Tempo e Movimento", level: 1 },
+      { id: "13", title: "Rótulos Acessíveis e Coerentes", level: 1 },
+      { id: "14", title: "Transcrições e Legendas", level: 1 },
+      { id: "15", title: "Formatação de Ajuda", level: 1 },
+      { id: "16", title: "Contraste Visual e Personalização", level: 1 },
+    ],
+    content: `
+      <h2 id="1">1 – Organização e Navegação Compreensíveis</h2>
+      <p>
+        Cada elemento deve estar organizado de forma clara, tanto na aparência quanto no código, 
+        para que a relação entre eles seja fácil de entender. Isso facilita a navegação para 
+        quem usa tecnologias assistivas, para quem navega apenas com o teclado e para quem 
+        acessa o site em dispositivos de diferentes tamanhos de tela.
+      </p>
+
+      <h2 id="criterios-sucesso">Critérios de Sucesso</h2>
+      <p>
+        Os elementos da interface devem ser organizados de maneira hierárquica, lógica e coerente, 
+        tanto para quem vê quanto para quem ouve. A navegação mantém a sequência lógica em 
+        diferentes tamanhos de tela, sendo responsiva e funcional para se movimentar por teclado.
+      </p>
+
+      <h2 id="objetivo">Objetivo</h2>
+      <p>
+        Assegurar que todas as pessoas usuárias, independentemente do dispositivo ou da 
+        tecnologia utilizada, consigam acessar, compreender e navegar pelo conteúdo de 
+        forma eficiente, intuitiva e sequencial.
+      </p>
+
+      <h2 id="que-fazer">O que fazer</h2>
+      <p>
+        Organize os elementos de forma hierárquica, utilizando tags apropriadas no html, 
+        certifique-se de que todos os elementos focáveis sigam uma sequência previsível e 
+        intuitiva, respeitando a estrutura e o fluxo do conteúdo; realize testes com 
+        tecnologias assistivas e diferentes dispositivos para garantir a qualidade.
+      </p>
+  
+
+      <h2 id="2">2 – Títulos Claros e Objetivos</h2>
+       <p>
+        Cada página deve ter um título único e relevante que ajude os usuários a 
+        identificarem rapidamente seu conteúdo ou função. Isso é especialmente 
+        importante para quem utiliza tecnologias assistivas, pois facilita a 
+        navegação e a compreensão da página sem depender da análise de seu 
+        conteúdo visual.
+      </p>
+
+      <h3 id="criterios-sucesso">Critérios de Sucesso</h3>
+      <p>
+        As páginas web têm títulos que descrevem o tópico ou a finalidade.
+      </p>
+
+      <h3 id="objetivo">Objetivo</h3>
+      <p>
+        Garantir que cada página tenha um título informativo, que comunique 
+        claramente seu propósito, facilitando a navegação para todos os usuários, 
+        inclusive aqueles que utilizam tecnologias assistivas.
+      </p>
+
+      <h3 id="que-fazer">O que fazer</h3>
+      <p>
+        Garanta que cada página tenha um título único que reflete seu conteúdo 
+        de forma precisa e objetiva. O título deve ser curto e direto, informando 
+        o propósito da página sem ambiguidade. Além disso, é importante evitar 
+        termos genéricos ou irrelevantes, garantindo que os usuários, inclusive 
+        aqueles que utilizam tecnologias assistivas, possam identificar rapidamente 
+        a função da página e navegar com facilidade.
+      </p>
+
+      <h2 id="3">3 – Orientações Não Sensoriais</h2>
+      <p>
+        "Instruções Baseadas em Ações", "Identificação por Nome" e "Contexto e Função" 
+        são instruções diretas e focam na ação a ser tomada, permitindo que todos os 
+        usuários, independentemente de suas habilidades sensoriais, compreendam o que 
+        devem fazer.
+      </p>
+
+      <h3 id="criterios-sucesso">Critérios de Sucesso</h3>
+      <p>
+        Quando a sequência em que o conteúdo é apresentado afeta o seu significado, 
+        é possível determinar programaticamente uma sequência de leitura correta. 
+        Assim as instruções fornecidas para a compreensão e utilização de conteúdos 
+        não devem se basear apenas nas caraterísticas sensoriais dos componentes, 
+        como a forma, a cor, o tamanho, a localização visual, a orientação ou o som.
+      </p>
+
+      <h3 id="objetivo">Objetivo</h3>
+      <p>
+        Garantir a acessibilidade e a usabilidade da interface para todos os usuários, 
+        independentemente de suas habilidades sensoriais.
+      </p>
+
+      <h3 id="que-fazer">O que fazer</h3>
+      <p>
+        Utilize instruções claras e específicas para que qualquer usuário consiga 
+        entender, independentemente de cor ou posição.
+      </p>
+
+      <h2 id="4">4 – Conteúdo Visual com Descrições Textuais</h2>
+      <p>
+        Todo elemento visual significativo, incluindo gráficos, símbolos e validações 
+        de segurança, necessita de uma descrição textual apropriada.
+      </p>
+
+      <h3 id="criterios-sucesso">Critérios de Sucesso</h3>
+      <p>
+        Cada componente não textual importante deve incluir uma descrição detalhada 
+        que identifica sua natureza, propósito e funcionalidade. Como ilustração, 
+        quando um software de acessibilidade encontra um elemento interativo, ele 
+        anuncia "Elemento interativo: Exportar dados. Pressione Enter para executar". 
+        Estas descrições precisam funcionar adequadamente em diferentes tecnologias 
+        assistivas, sistemas e browsers.
+      </p>
+
+      <h3 id="objetivo">Objetivo</h3>
+      <p>
+        Tornar o conteúdo digital acessível para um público mais amplo através de 
+        descrições textuais adequadas.
+      </p>
+
+      <h3 id="que-fazer">O que fazer</h3>
+      <p>
+        Implementar descrições textuais claras e precisas para representar adequadamente 
+        elementos visuais e sonoros do conteúdo.
+      </p>
+
+      <h2 id="5">5 – Consistência na Interação</h2>
+       <p>
+        O sistema deve funcionar de maneira padronizada e previsível durante toda 
+        a navegação, evitando alterações inesperadas no ambiente. Elementos de 
+        orientação e identificadores precisos são essenciais para orientar o 
+        visitante, proporcionando uma navegação fluida e inclusiva, particularmente 
+        para pessoas que dependem de recursos de acessibilidade.
+      </p>
+
+      <h3 id="criterios-sucesso">Critérios de Sucesso</h3>
+      <p>
+        Modificações nos elementos interativos da interface não devem desencadear 
+        mudanças automáticas no ambiente, exceto quando o visitante for previamente 
+        informado dessa possibilidade. Títulos e identificadores devem comunicar 
+        claramente sua função e propósito.
+      </p>
+
+      <h3 id="objetivo">Objetivo</h3>
+      <p>
+        Assegurar uma experiência de uso intuitiva e sem surpresas, minimizando 
+        dificuldades na navegação. Este aspecto é fundamental para usuários com 
+        necessidades específicas ou que utilizam ferramentas de acessibilidade, 
+        pois a uniformidade na interação otimiza o uso de formulários e reduz 
+        a ocorrência de equívocos.
+      </p>
+
+      <h3 id="que-fazer">O que fazer</h3>
+      <p>
+        Evite alterações automáticas no layout ou surgimento espontâneo de elementos 
+        durante a interação com formulários e campos de entrada. Utilize linguagem 
+        direta e objetiva em botões e campos interativos, adicionando instruções 
+        quando necessário. Mantenha padrões consistentes de interação em todo o 
+        sistema. Realize avaliações com diferentes perfis de usuários, priorizando 
+        aqueles que necessitam de recursos de acessibilidade para navegar.
+      </p>
+
+      <h2 id="6">6 – Minimização de Redundâncias</h2>
+      <p>
+        Dados previamente registrados em processos sequenciais devem ser 
+        autocompletados ou apresentados como opções de seleção, minimizando 
+        a necessidade de digitação repetitiva.
+      </p>
+
+      <h3 id="criterios-sucesso">Critérios de Sucesso</h3>
+      <p>
+        Os dados anteriormente cadastrados pelo usuário, que necessitam ser 
+        utilizados novamente na mesma jornada, precisam ser automaticamente 
+        populados ou disponibilizados em formato de seleção. Contudo, existem 
+        situações específicas onde a reinserção é necessária, como em validações 
+        de segurança ou quando os dados iniciais expiraram.
+      </p>
+
+      <h3 id="objetivo">Objetivo</h3>
+      <p>
+        Otimizar a experiência em processos multietapas, minimizando o esforço 
+        mental do usuário.
+      </p>
+
+      <h3 id="que-fazer">O que fazer</h3>
+      <p>
+        Elimine a necessidade de inserção repetida de informações que já foram 
+        coletadas durante o fluxo atual.
+      </p>
+
+      <h2 id="7">7 – Clareza em Mensagens de Erro</h2>
+      <p>
+        Na ocorrência de uma falha, é fundamental comunicar precisamente qual é 
+        o problema e apresentar possíveis soluções. Esta prática beneficia todos 
+        os usuários, sendo especialmente relevante para pessoas com limitações 
+        visuais ou de compreensão, auxiliando no entendimento e na resolução 
+        do problema encontrado.
+      </p>
+
+      <h3 id="criterios-sucesso">Critérios de Sucesso</h3>
+      <p>
+        Quando uma falha é identificada pelo sistema, o elemento problemático deve 
+        ser destacado e uma explicação textual deve ser fornecida ao usuário. 
+        Caso existam recomendações para correção, estas devem ser apresentadas, 
+        exceto em situações onde tal ação possa comprometer a segurança ou a 
+        finalidade do conteúdo.
+      </p>
+
+      <h3 id="objetivo">Objetivo</h3>
+      <p>
+        Assegurar que o usuário identifique a presença de uma falha, compreenda 
+        sua natureza e receba orientações adequadas para sua correção.
+      </p>
+
+      <h3 id="que-fazer">O que fazer</h3>
+      <p>
+        Implemente notificações objetivas de erro e ofereça caminhos para sua 
+        resolução. Para ampliar a efetividade da comunicação, utilize recursos 
+        diversos como indicadores cromáticos, modificações estruturais, 
+        indicadores sonoros ou mensagens textuais.
+      </p>
+
+      <h2 id="8">8 – Links Descritivos</h2>
+      <p>
+        É essencial informar ao usuário o que acontecerá ao clicar em um link. 
+        Evite textos vagos, como "clique aqui", e opte por descrições claras que 
+        indiquem o destino ou a ação do link, como "baixe o relatório", 
+        "conheça nosso time" ou "acesse a página de contato".
+      </p>
+
+      <h3 id="criterios-sucesso-links">Critérios de Sucesso</h3>
+      <p>
+        Cada link deve comunicar de forma clara e precisa o seu destino, seja 
+        por meio do próprio texto do link ou do contexto ao seu redor. Exceções 
+        aplicam-se apenas quando o propósito do link for ambíguo para a maioria 
+        dos usuários.
+      </p>
+
+      <h3 id="objetivo-links">Objetivo</h3>
+      <p>
+        Assegurar que os usuários compreendam o que ocorrerá ao interagir com 
+        um link, promovendo uma experiência de navegação mais intuitiva e 
+        acessível. Descrições claras ajudam os usuários a navegar com confiança, 
+        evitando surpresas ou confusões sobre o destino ou a função do link.
+      </p>
+
+      <h3 id="que-fazer-links">O que fazer</h3>
+      <p>
+        Utilize textos de link que descrevam explicitamente a ação ou o destino, 
+        como "confira nossos serviços". Para links curtos, complemente com 
+        explicações no texto ao redor. Realize testes com leitores de tela para 
+        garantir que os links sejam compreensíveis e assegure-se de que sejam 
+        simples e claros para todos os usuários.
+      </p>
+
+      <h2 id="9">9 – Controle Flexível de Interação</h2>
+      <p>
+        Para funções que são frequentemente ativadas acidentalmente por gestos, 
+        é necessário fornecer um mecanismo simples para desfazer ou confirmar 
+        a ação antes de prosseguir. Isso é especialmente crucial em aplicativos 
+        que lidam com dados sensíveis ou operações irreversíveis.
+      </p>
+
+      <h3 id="criterios-sucesso-correcao">Critérios de Sucesso</h3>
+      <p>
+        Funcionalidades que dependem de gestos complexos devem ser simplificadas 
+        para serem executadas com um único clique. Movimentos do dispositivo ou 
+        do usuário que acionam funções devem ter alternativas acessíveis na 
+        interface, e deve ser possível desativar essas respostas para prevenir 
+        erros. Ações ativadas por um clique devem permitir cancelamento ou 
+        correção fácil, exceto quando o clique imediato for essencial.
+      </p>
+
+      <h3 id="objetivo-correcao">Objetivo</h3>
+      <p>
+        Reduzir frustrações e erros operacionais, assegurando que todas as 
+        interações possam ser controladas de maneira segura e acessível.
+      </p>
+
+      <h3 id="que-fazer-correcao">O que fazer</h3>
+      <p>
+        Implemente confirmações ou opções de desfazer para ações críticas que 
+        podem ser acionadas por gestos. Certifique-se de que essas opções sejam 
+        claramente comunicadas e de fácil acesso para os usuários.
+      </p>
+
+      <h2 id="10">10 – Navegação por Teclado</h2>
+      <p>
+        Para garantir uma experiência fluida de navegação por teclado, os elementos 
+        interativos devem ser acessíveis em uma ordem lógica e intuitiva, seguindo 
+        o fluxo natural da interface.
+      </p>
+
+      <h3 id="criterios-sucesso-teclado">Critérios de Sucesso</h3>
+      <p>
+        Todos os elementos interativos devem ser acessíveis via teclado e funcionar 
+        corretamente com comandos como Tab, Enter e Espaço. Isso inclui botões, 
+        links, campos de formulário e outros componentes que possam receber foco.
+      </p>
+
+      <h3 id="objetivo-teclado">Objetivo</h3>
+      <p>
+        Facilitar a navegação independente pelo site ou aplicativo para usuários 
+        que não utilizam mouse. Isso beneficia pessoas com deficiência motora, 
+        visual ou cognitiva, que dependem do teclado ou de tecnologias assistivas, 
+        como leitores de tela e teclados adaptados.
+      </p>
+
+      <h3 id="que-fazer-teclado">O que fazer</h3>
+      <p>
+        Certifique-se de que a ordem do foco do teclado siga uma sequência lógica, 
+        alinhada ao fluxo visual da interface. Evite que componentes como pop-ups 
+        ou menus dropdown capturem o foco do teclado de forma desorganizada, 
+        interrompendo a navegação intuitiva.
+      </p>
+
+      <h2 id="11">11 – Ignorar Repetições</h2>
+      <p>
+        Uma prática essencial para melhorar a usabilidade do site para usuários de 
+        teclado é oferecer a opção de pular blocos repetitivos, como menus de 
+        navegação, cabeçalhos ou rodapés, permitindo que eles acessem diretamente 
+        o conteúdo principal da página. Isso pode ser implementado por meio de um 
+        link oculto no início da página, que se torna visível ao navegar com a 
+        tecla Tab.
+      </p>
+
+      <h3 id="criterios-sucesso-ignorar">Critérios de Sucesso</h3>
+      <p>
+        O site deve permitir que os usuários de teclado, ao pressionarem a tecla 
+        Tab, visualizem a opção de "Pular para o conteúdo". Esse link deve ser 
+        acessível logo nos primeiros passos da navegação, sem a necessidade de 
+        percorrer elementos repetidos, e direcionar o usuário diretamente ao 
+        conteúdo principal.
+      </p>
+
+      <h3 id="objetivo-ignorar">Objetivo</h3>
+      <p>
+        Reduzir o tempo e o esforço necessários para acessar o conteúdo relevante, 
+        promovendo uma navegação mais rápida e eficiente, especialmente para 
+        usuários que dependem do teclado ou de tecnologias assistivas. Essa 
+        funcionalidade melhora a acessibilidade e facilita a navegação para todos, 
+        eliminando a frustração de passar por menus ou cabeçalhos repetidos em 
+        cada página.
+      </p>
+
+      <h3 id="que-fazer-ignorar">O que fazer</h3>
+      <p>
+        Desenvolvedores devem implementar um skip link que se torne visível ao 
+        receber foco, geralmente posicionado no topo da página. Esse link deve 
+        ser descrito de forma clara, como "Pular para o conteúdo principal", e 
+        testado em navegadores e leitores de tela para garantir seu funcionamento 
+        adequado. Além disso, é crucial assegurar que ele seja facilmente 
+        acessível logo no início da navegação com o teclado, evitando a 
+        necessidade de interagir com blocos repetidos.
+      </p>
+
+      <h2 id="12">12 – Ajuste de Tempo e Movimento</h2>
+      <p>
+        Certifique-se de que os componentes interativos, como animações automáticas 
+        ou contadores de tempo, incluam controles acessíveis para que os usuários 
+        possam pausar, parar ou ajustar essas ações. Para limites de tempo, ofereça 
+        a opção de estender ou desativar o tempo. Isso deve ser feito usando 
+        atributos e controles que possam ser detectados por tecnologias assistivas 
+        e facilmente acionados por pessoas com deficiência.
+      </p>
+
+      <h3 id="criterios-sucesso-atributos">Critérios de Sucesso</h3>
+      <p>
+        Elementos que piscam ou se movem automaticamente devem ter controles para 
+        pausar ou parar o movimento. Isso facilita a leitura e reduz desconforto 
+        para pessoas com deficiência visual ou dificuldades de atenção. Um botão 
+        de pausa é essencial para tornar o conteúdo acessível.
+      </p>
+      <p>
+        Sites com limite de tempo devem permitir desativar, ajustar ou estender o 
+        período antes de desconectar o usuário. Isso ajuda quem precisa de mais 
+        tempo, como pessoas com deficiência. Um aviso de “Estender Tempo” antes 
+        do logout garante continuidade das tarefas.
+      </p>
+
+      <h3 id="objetivo-atributos">Objetivo</h3>
+      <p>
+        Permitir que todos controlem o tempo e os movimentos no site, tornando a 
+        navegação mais fácil e confortável para pessoas com diferentes necessidades 
+        ou dificuldades, além de melhorar o uso em situações adversas de navegação.
+      </p>
+
+      <h3 id="que-fazer-atributos">O que fazer?</h3>
+      <p>
+        Adicione botões visíveis para pausar ou parar movimentos, como em carrosséis 
+        ou animações, ajudando os usuários a evitar desconforto.
+      </p>
+      <p>
+        Ofereça opções para desativar ou estender o tempo, garantindo que todos 
+        possam completar tarefas sem pressa ou frustração.
+      </p>
+      <p>
+        Certifique-se de que controles funcionem com leitores de tela e comandos 
+        de voz, garantindo acessibilidade para todos os usuários.
+      </p>
+
+      <h2 id="13">13 – Rótulos Acessíveis e Coerentes</h2>
+      <p>
+        Cada componente da interface do usuário, como botões, campos de formulário, 
+        links e elementos gerados por scripts, deve conter atributos claros e 
+        acessíveis, como nome, função e valor. Isso é essencial para garantir que 
+        as tecnologias assistivas, como leitores de tela e sistemas de comando por 
+        voz, consigam interpretar e comunicar essas informações corretamente aos 
+        usuários. Além disso, os nomes dos controles interativos devem ser idênticos 
+        aos rótulos visíveis na interface, evitando confusão na navegação e na 
+        ativação de comandos por voz.
+      </p>
+
+      <h3 id="criterios-sucesso-atributos">Critérios de Sucesso</h3>
+      <p>
+        Os componentes interativos têm nomes, funções e valores definidos 
+        corretamente. O nome que as tecnologias assistivas leem é o mesmo que o 
+        rótulo visível, e os elementos da interface funcionam de forma consistente. 
+        Assim, os usuários conseguem navegar e usar a interface de forma fácil e 
+        previsível, independentemente do dispositivo ou da tecnologia que estão 
+        usando.
+      </p>
+
+      <h3 id="objetivo-atributos">Objetivo</h3>
+      <p>
+        Assegurar que todas as pessoas usuárias, incluindo aquelas que utilizam 
+        leitores de tela ou navegação por voz, possam interagir com os componentes 
+        da interface sem barreiras, garantindo que cada elemento possua os atributos 
+        corretos e que a navegação seja intuitiva.
+      </p>
+
+      <h3 id="que-fazer-atributos">O que fazer</h3>
+      <p>
+        Configurar corretamente os atributos <code>aria-label</code>, <code>role</code> 
+        e <code>aria-valuenow</code> para fornecer informações completas sobre os 
+        componentes interativos. Também realize testes com leitores de tela e sistemas 
+        de navegação por voz para validar que os controles da interface estejam sendo 
+        corretamente identificados e acionados.
+      </p>
+
+      <h2 id="14">14 – Transcrições e Legendas</h2>
+      <p>
+        Fornecer alternativas a conteúdos audiovisuais, principalmente de forma 
+        descritiva, é de extrema importância para torná-los acessíveis a todas 
+        as pessoas.
+      </p>
+
+      <h3 id="criterios-sucesso-transcricoes">Critérios de Sucesso</h3>
+      <p>
+        Para conteúdo em áudio, pode ser disponibilizada uma transcrição completa, 
+        permitindo que pessoas com deficiência auditiva leiam todas as informações 
+        e acessem o conteúdo de forma equivalente.
+      </p>
+      <p>
+        Para vídeos sem som, pode-se oferecer uma alternativa em áudio que descreve 
+        o que acontece na tela. Imagine um vídeo educativo que mostra apenas imagens 
+        de um experimento. Para torná-lo acessível, pode ser adicionada uma faixa de 
+        áudio que descreva o experimento e explique cada etapa. Da mesma forma, uma 
+        descrição em áudio é incluída em todos os vídeos gravados para explicar o 
+        que está acontecendo nas imagens. Por exemplo, um documentário que mostra 
+        cenas de natureza sem narração. Para que pessoas com deficiência visual 
+        entendam o que aparece na tela, é incluída uma descrição em áudio que 
+        explica as ações e cenários do vídeo, como "Um leão caminha lentamente 
+        pela savana".
+      </p>
+      <p>
+        Legendas são sempre incluídas em vídeos com áudio gravado, a menos que o 
+        vídeo seja uma versão alternativa de um conteúdo em texto e isso esteja 
+        claramente indicado. Pense em uma palestra gravada on-line. Para torná-la 
+        acessível, são adicionadas legendas que transcrevem tudo o que é dito, 
+        permitindo que pessoas com deficiência auditiva acompanhem o conteúdo. 
+        Se esse vídeo for apenas uma versão alternativa de um artigo escrito 
+        (já disponível para leitura), e isso estiver claramente indicado, as 
+        legendas não são obrigatórias.
+      </p>
+
+      <h3 id="objetivo-transcricoes">Objetivo</h3>
+      <p>
+        Garantir a compreensão do conteúdo de áudio, vídeo e audiovisual por mais 
+        pessoas ao gerar legendas e descrições de áudio.
+      </p>
+
+      <h3 id="que-fazer-transcricoes">O que fazer?</h3>
+      <p>
+        Forneça uma alternativa quando o conteúdo for perceptível com apenas um 
+        sentido: texto sincronizado para conteúdo de áudio; descrição do conteúdo 
+        visual dos vídeos; e descrição falada sincronizada do conteúdo visual 
+        dos vídeos.
+      </p>
+
+      <h2 id="15">15 – Formatação de Ajuda</h2>
+      <p>
+        Para facilitar a navegação, a ajuda deve seguir um padrão em todas as 
+        páginas. Por exemplo, se o botão de ajuda fica no canto inferior direito 
+        em uma página, deve estar no mesmo lugar em todas as outras páginas do 
+        site. Além disso, as instruções e a forma como a ajuda funciona devem 
+        ser consistentes. Assim, os usuários sabem exatamente onde encontrar 
+        ajuda e como ela funciona, independentemente da página em que estão.
+      </p>
+
+      <h3 id="criterios-sucesso-ajuda">Critérios de Sucesso</h3>
+      <p>
+        Se uma página da web contiver qualquer um dos seguintes mecanismos de 
+        ajuda e esses mecanismos forem repetidos em várias páginas dentro de 
+        um conjunto, eles ocorrerão na mesma ordem em relação a outro conteúdo 
+        da página, a menos que uma alteração seja iniciada pelo usuário: 
+        detalhes de contato humano, mecanismo de contato humano, opção de 
+        autoajuda ou um mecanismo de contato totalmente automatizado.
+      </p>
+
+      <h3 id="objetivo-ajuda">Objetivo</h3>
+      <p>
+        Garantir que todas as pessoas, independentemente de habilidades ou 
+        preferências, possam acessar a ajuda de forma fácil. Isso se aplica 
+        especialmente para usuários com deficiência ou limitações cognitivas 
+        ou tecnológicas, que precisam de consistência para navegar com mais 
+        facilidade.
+      </p>
+
+      <h3 id="que-fazer-ajuda">O que fazer</h3>
+      <p>
+        Mantenha os elementos de ajuda (links, botões, ícones) consistentes 
+        em termos de localização, design e funcionalidade em todas as páginas 
+        da interface. Garanta que as opções de ajuda incluam formas automatizadas 
+        (como chatbots) e formas de contato humano (como e-mail ou telefone) 
+        para cobrir as preferências e necessidades de todos os usuários.
+      </p>
+
+      <h2 id="16">16 – Contraste Visual e Personalização</h2>
+      <p>
+        Para que o texto e as imagens sejam fáceis de ler, é importante ajustar 
+        o contraste entre eles e o fundo.
+      </p>
+
+      <h3 id="criterios-sucesso-contraste">Critérios de Sucesso</h3>
+      <p>
+        O texto e as imagens de texto devem ter uma proporção de contraste mínima 
+        de 4.5:1, com exceção para textos grandes (3:1), texto decorativo e 
+        logotipos.
+      </p>
+
+      <h3 id="objetivo-contraste">Objetivo</h3>
+      <p>
+        Garantir que o texto seja legível por pessoas com visão moderadamente 
+        baixa ou com dificuldades de percepção de contraste, sem o uso de 
+        tecnologias assistivas.
+      </p>
+
+      <h3 id="que-fazer-contraste">O que fazer</h3>
+      <p>
+        Fornecer contraste suficiente entre o texto e o fundo, garantindo uma 
+        proporção de contraste de 4.5:1 para textos normais e 3:1 para textos 
+        grandes.
+      </p>
+
+      <div class="bg-muted p-4 rounded-lg mt-4">
+        <h3 class="text-lg font-medium mb-2">Dica de Acessibilidade</h3>
+        <p>Incorpore testes de acessibilidade desde o início do desenvolvimento e garanta que todos os usuários possam interagir com sua aplicação de forma eficiente e independente.</p>
+      </div>
+    `,
+  },
+  {
     id: "wcag",
     title: "Diretrizes WCAG 2.1 e Heurísticas de Nielsen",
     description: "Guia simplificado de acessibilidade e usabilidade web",
@@ -273,7 +851,7 @@ export const topics = [
       { id: "testing", title: "Testes de Acessibilidade", level: 1 }
     ],
     content: `
-      <h1>Desenvolvimento Web Acessível</h1>
+      <h1></h1>
       <p>Um guia prático para implementar acessibilidade em elementos específicos do seu site.</p>
 
       <h2 id="principios">Princípios Fundamentais</h2>
@@ -352,7 +930,7 @@ export const topics = [
 
       <h4>HTML Básico</h4>
       <pre><code class="language-html">&lt;!-- Imagem com texto alternativo --&gt;
-&lt;img 
+&lt;img '
   src="/exemplo.jpg" 
   alt="Descrição clara da imagem"
   loading="lazy" 
