@@ -413,5 +413,431 @@ document.addEventListener('keydown', (e) => {
         elementos ARIA estão sendo implementados corretamente.</p>
       </div>
     `
+  },
+  {
+    id: "nielsen-heuristics",
+    title: "Heurísticas de Nielsen",
+    description: "As 10 heurísticas de Nielsen aplicadas ao design de interfaces digitais acessíveis",
+    sections: [
+      { id: "visibilidade", title: "1. Visibilidade do Status do Sistema", level: 1 },
+      { id: "correspondencia", title: "2. Correspondência com o Mundo Real", level: 1 },
+      { id: "controle", title: "3. Controle e Liberdade do Usuário", level: 1 },
+      { id: "consistencia", title: "4. Consistência e Padrões", level: 1 },
+      { id: "prevencao", title: "5. Prevenção de Erros", level: 1 },
+      { id: "reconhecimento", title: "6. Reconhecimento em vez de Memorização", level: 1 },
+      { id: "flexibilidade", title: "7. Flexibilidade e Eficiência", level: 1 },
+      { id: "estetica", title: "8. Estética e Design Minimalista", level: 1 },
+      { id: "erros", title: "9. Ajuda aos Usuários com Erros", level: 1 },
+      { id: "ajuda", title: "10. Ajuda e Documentação", level: 1 }
+    ],
+    content: `
+      <h1>As 10 Heurísticas de Nielsen na Prática</h1>
+      <p>As heurísticas de Nielsen são princípios fundamentais para criar interfaces acessíveis e fáceis de usar. Vamos explorar cada uma com exemplos práticos.</p>
+
+      <h2 id="visibilidade">1. Visibilidade do Status do Sistema</h2>
+      <p>O sistema deve sempre manter os usuários informados sobre o que está acontecendo através de feedback apropriado em tempo razoável.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-html">
+<!-- Indicador de carregamento -->
+<div role="status" aria-live="polite">
+  <div class="loading-spinner"></div>
+  <p>Carregando dados... 60%</p>
+</div>
+
+<!-- Feedback de formulário -->
+<form>
+  <div class="form-status" aria-live="polite">
+    <p class="text-green-500">✓ Formulário salvo automaticamente</p>
+  </div>
+</form>
+        </code></pre>
+      </div>
+
+      <h2 id="correspondencia">2. Correspondência com o Mundo Real</h2>
+      <p>O sistema deve falar a linguagem dos usuários, com palavras, frases e conceitos familiares, seguindo convenções do mundo real.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-html">
+<!-- Interface de email usando metáforas familiares -->
+<nav aria-label="Email">
+  <ul>
+    <li>
+      <button>
+        <svg><!-- ícone de carta --></svg>
+        Caixa de Entrada
+      </button>
+    </li>
+    <li>
+      <button>
+        <svg><!-- ícone de papel --></svg>
+        Rascunhos
+      </button>
+    </li>
+    <li>
+      <button>
+        <svg><!-- ícone de lixeira --></svg>
+        Lixeira
+      </button>
+    </li>
+  </ul>
+</nav>
+        </code></pre>
+      </div>
+
+      <h2 id="controle">3. Controle e Liberdade do Usuário</h2>
+      <p>Usuários frequentemente escolhem funções por engano e precisam de uma "saída de emergência" claramente marcada.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-html">
+<!-- Diálogo de confirmação -->
+<div role="dialog" aria-labelledby="dialog-title" aria-modal="true">
+  <h2 id="dialog-title">Excluir item?</h2>
+  <p>Esta ação não pode ser desfeita.</p>
+  <div class="dialog-buttons">
+    <button autofocus>Cancelar</button>
+    <button class="destructive">Excluir</button>
+  </div>
+</div>
+
+<!-- Toast com opção de desfazer -->
+<div role="alert" aria-live="polite">
+  <p>Item excluído</p>
+  <button>Desfazer</button>
+</div>
+        </code></pre>
+      </div>
+
+      <h2 id="consistencia">4. Consistência e Padrões</h2>
+      <p>Os usuários não devem ter que se perguntar se diferentes palavras, situações ou ações significam a mesma coisa.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-css">
+/* Sistema de Design Consistente */
+:root {
+  /* Cores */
+  --primary: #0066cc;
+  --success: #28a745;
+  --danger: #dc3545;
+
+  /* Tipografia */
+  --heading-1: 2rem;
+  --heading-2: 1.5rem;
+  --body: 1rem;
+
+  /* Espaçamento */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+}
+
+/* Botões consistentes */
+.button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  font-size: var(--body);
+}
+
+.button-primary {
+  background: var(--primary);
+}
+
+.button-danger {
+  background: var(--danger);
+}
+        </code></pre>
+      </div>
+
+      <h2 id="prevencao">5. Prevenção de Erros</h2>
+      <p>Melhor que boas mensagens de erro é um design cuidadoso que previne que problemas ocorram.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-javascript">
+// Validação de formulário preventiva
+const form = document.querySelector('form');
+const emailInput = document.querySelector('#email');
+
+emailInput.addEventListener('input', (e) => {
+  const email = e.target.value;
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!isValid) {
+    emailInput.setAttribute('aria-invalid', 'true');
+    emailInput.nextElementSibling.textContent = 
+      'Por favor, insira um email válido';
+  } else {
+    emailInput.removeAttribute('aria-invalid');
+    emailInput.nextElementSibling.textContent = '';
+  }
+});
+
+// Confirmar antes de ações destrutivas
+function confirmarExclusao(event) {
+  const confirmacao = confirm(
+    'Tem certeza que deseja excluir? Esta ação não pode ser desfeita.'
+  );
+  if (!confirmacao) {
+    event.preventDefault();
+  }
+}
+        </code></pre>
+      </div>
+
+      <h2 id="reconhecimento">6. Reconhecimento em vez de Memorização</h2>
+      <p>Minimize a carga de memória do usuário tornando objetos, ações e opções visíveis.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-html">
+<!-- Menu com ícones e rótulos -->
+<nav aria-label="Menu principal">
+  <ul>
+    <li>
+      <a href="/dashboard">
+        <svg aria-hidden="true"><!-- ícone --></svg>
+        <span>Painel</span>
+      </a>
+    </li>
+    <li>
+      <a href="/settings">
+        <svg aria-hidden="true"><!-- ícone --></svg>
+        <span>Configurações</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Autocompletar em busca -->
+<div class="search-container">
+  <input
+    type="search"
+    list="suggestions"
+    placeholder="Buscar..."
+  />
+  <datalist id="suggestions">
+    <option value="Acessibilidade">
+    <option value="Design Universal">
+    <option value="WCAG">
+  </datalist>
+</div>
+        </code></pre>
+      </div>
+
+      <h2 id="flexibilidade">7. Flexibilidade e Eficiência</h2>
+      <p>Atalhos podem acelerar a interação para usuários experientes, permitindo que o sistema atenda tanto usuários inexperientes quanto experientes.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-javascript">
+// Implementação de atalhos de teclado
+document.addEventListener('keydown', (e) => {
+  // Ctrl/Cmd + K para abrir busca
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    document.querySelector('#search').focus();
+  }
+
+  // Ctrl/Cmd + S para salvar
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    salvarAlterações();
+  }
+});
+
+// Dicas de atalhos visíveis
+const shortcuts = {
+  'Ctrl + K': 'Abrir busca',
+  'Ctrl + S': 'Salvar alterações',
+  'Ctrl + Z': 'Desfazer',
+  '/' : 'Foco na busca',
+};
+
+function mostrarAtalhos() {
+  const lista = document.createElement('div');
+  lista.setAttribute('role', 'dialog');
+  lista.setAttribute('aria-label', 'Atalhos de teclado');
+
+  Object.entries(shortcuts).forEach(([tecla, ação]) => {
+    lista.innerHTML += \`
+      <div class="shortcut">
+        <kbd>\${tecla}</kbd>
+        <span>\${ação}</span>
+      </div>
+    \`;
+  });
+
+  document.body.appendChild(lista);
+}
+        </code></pre>
+      </div>
+
+      <h2 id="estetica">8. Estética e Design Minimalista</h2>
+      <p>Os diálogos não devem conter informações irrelevantes ou raramente necessárias.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-html">
+<!-- Card com design minimalista -->
+<article class="card">
+  <img 
+    src="imagem.jpg" 
+    alt="Descrição da imagem"
+    loading="lazy"
+  >
+  <div class="card-content">
+    <h3>Título Conciso</h3>
+    <p>Descrição breve e relevante.</p>
+    <button class="primary">
+      Ação Principal
+    </button>
+  </div>
+</article>
+
+<style>
+.card {
+  max-width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0 0 1rem;
+  color: #666;
+}
+</style>
+        </code></pre>
+      </div>
+
+      <h2 id="erros">9. Ajuda aos Usuários com Erros</h2>
+      <p>Mensagens de erro devem ser expressas em linguagem clara, indicar precisamente o problema e sugerir uma solução construtiva.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-javascript">
+// Sistema de feedback de erros
+function mostrarErro(campo, mensagem) {
+  const elemento = document.querySelector(\`#\${campo}\`);
+  const feedback = document.createElement('div');
+
+  feedback.setAttribute('role', 'alert');
+  feedback.classList.add('error-message');
+  feedback.innerHTML = \`
+    <svg aria-hidden="true"><!-- ícone de erro --></svg>
+    <p>\${mensagem}</p>
+    <button onclick="corrigirErro('\${campo}')">
+      Sugestão de correção
+    </button>
+  \`;
+
+  elemento.setAttribute('aria-invalid', 'true');
+  elemento.setAttribute('aria-describedby', \`\${campo}-error\`);
+  elemento.parentNode.appendChild(feedback);
+}
+
+// Exemplo de uso
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+  const senha = document.querySelector('#senha').value;
+
+  if (senha.length < 8) {
+    e.preventDefault();
+    mostrarErro('senha', 
+      'A senha deve ter pelo menos 8 caracteres. ' +
+      'Tente adicionar números ou caracteres especiais.'
+    );
+  }
+});
+        </code></pre>
+      </div>
+
+      <h2 id="ajuda">10. Ajuda e Documentação</h2>
+      <p>Mesmo que seja melhor que o sistema possa ser usado sem documentação, pode ser necessário fornecer ajuda e documentação.</p>
+
+      <div class="bg-muted p-4 rounded-lg mb-4">
+        <h3 class="text-lg font-medium mb-2">Exemplo Prático:</h3>
+        <pre><code class="language-html">
+<!-- Sistema de ajuda contextual -->
+<div class="help-system">
+  <button 
+    aria-label="Ajuda"
+    aria-expanded="false"
+    onclick="toggleHelp(this)"
+  >
+    <svg><!-- ícone de ajuda --></svg>
+  </button>
+
+  <div class="help-content" hidden>
+    <h4>Ajuda Rápida</h4>
+    <ul>
+      <li>
+        <strong>Como começar:</strong>
+        Siga o tutorial interativo
+      </li>
+      <li>
+        <strong>Dúvidas comuns:</strong>
+        Consulte nossa FAQ
+      </li>
+      <li>
+        <strong>Suporte:</strong>
+        Entre em contato
+      </li>
+    </ul>
+
+    <!-- Tour guiado -->
+    <button onclick="iniciarTour()">
+      Fazer tour guiado
+    </button>
+  </div>
+</div>
+
+<script>
+function toggleHelp(button) {
+  const content = button.nextElementSibling;
+  const isExpanded = 
+    button.getAttribute('aria-expanded') === 'true';
+
+  button.setAttribute('aria-expanded', !isExpanded);
+  content.hidden = isExpanded;
+}
+
+function iniciarTour() {
+  const passos = [
+    {
+      elemento: '#passo1',
+      titulo: 'Bem-vindo!',
+      descricao: 'Vamos conhecer as principais funcionalidades.'
+    },
+    // ... mais passos do tour
+  ];
+
+  iniciarTourGuiado(passos);
+}
+</script>
+        </code></pre>
+      </div>
+
+      <div class="bg-muted p-4 rounded-lg mt-8">
+        <h3 class="text-lg font-medium mb-2">Recursos Adicionais</h3>
+        <ul>
+          <li><a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank">Artigo Original de Jakob Nielsen</a></li>
+          <li><a href="https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/" target="_blank">Como Conduzir uma Avaliação Heurística</a></li>
+        </ul>
+      </div>
+    `
   }
 ];
