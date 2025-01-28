@@ -15,13 +15,13 @@ export default function Home() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <img
-            src="https://images.unsplash.com/photo-1523998956902-6d4f549de43d"
-            alt="Pessoa usando computador com tecnologia assistiva"
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2"
+            alt="Pessoa usando leitor de tela e teclado braille para acessar computador"
             className="rounded-lg shadow-lg"
           />
           <img
-            src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2"
-            alt="Design inclusivo representado por peças de quebra-cabeça"
+            src="https://images.unsplash.com/photo-1624559913894-30578b757292"
+            alt="Teste de acessibilidade mostrando diferentes formas de interação com dispositivos"
             className="rounded-lg shadow-lg"
           />
         </div>
