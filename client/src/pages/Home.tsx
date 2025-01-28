@@ -15,12 +15,12 @@ export default function Home() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <img
-            src="/guia 1.jpg"
+            src="/guia1.jpg"
             alt="Ilustração de acessibilidade web mostrando um monitor de computador com ícones representando diferentes tipos de necessidades de acessibilidade"
             className="rounded-lg shadow-lg object-contain h-64 w-full"
           />
           <img
-            src="/guia 2.jpg"
+            src="/guia2.jpg"
             alt="Diagrama circular ilustrando os componentes da avaliação de acessibilidade em sites"
             className="rounded-lg shadow-lg object-contain h-64 w-full"
           />
