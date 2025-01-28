@@ -13,7 +13,7 @@ export default function Navbar() {
     <header className="border-b">
       <div className="container mx-auto px-4 h-16 flex items-center gap-4">
         <Link href="/">
-          <span className="text-2xl font-bold text-primary cursor-pointer">
+          <span className="text-2xl font-bold text-primary cursor-pointer dark:text-white">
             Guia de Acessibilidade
           </span>
         </Link>
