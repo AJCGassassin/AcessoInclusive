@@ -15,14 +15,14 @@ export default function Home() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <img
-            src="https://images.unsplash.com/photo-1631123327880-c95cf6eb0b9f"
-            alt="Pessoa utilizando computador com tecnologias assistivas para acessibilidade"
-            className="rounded-lg shadow-lg object-cover h-64 w-full"
+            src="/assets/avaliacao-acessibilidade.png"
+            alt="Diagrama circular mostrando os diferentes aspectos da avaliação de acessibilidade em sites: avaliação manual, validador HTML e CSS, checklists, barra de ferramentas e validadores automáticos"
+            className="rounded-lg shadow-lg object-contain h-64 w-full"
           />
           <img
-            src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f"
-            alt="Grupo diverso de pessoas trabalhando juntas em projeto de tecnologia inclusiva"
-            className="rounded-lg shadow-lg object-cover h-64 w-full"
+            src="/assets/acessibilidade-web.png"
+            alt="Ilustração de acessibilidade web mostrando um monitor de computador com ícones representando diferentes aspectos de acessibilidade: deficiência visual, cognitiva, motora e auditiva"
+            className="rounded-lg shadow-lg object-contain h-64 w-full bg-white"
           />
         </div>
       </section>
