@@ -261,17 +261,89 @@ export const topics = [
     title: "Desenvolvimento Web Acessível",
     description: "Guia prático para criar sites acessíveis com foco em elementos específicos e exemplos de código",
     sections: [
+      { id: "principios", title: "Princípios Fundamentais", level: 1 },
+      { id: "design", title: "Design Inclusivo", level: 1 },
+      { id: "navegacao", title: "Navegação", level: 1 },
       { id: "images", title: "Imagens", level: 1 },
       { id: "images-examples", title: "Exemplos de Implementação", level: 2 },
-      { id: "images-checklist", title: "Checklist de Imagens", level: 2 },
       { id: "videos", title: "Vídeos", level: 1 },
       { id: "videos-examples", title: "Exemplos de Implementação", level: 2 },
       { id: "forms", title: "Formulários", level: 1 },
-      { id: "forms-examples", title: "Exemplos de Implementação", level: 2 }
+      { id: "forms-examples", title: "Exemplos de Implementação", level: 2 },
+      { id: "testing", title: "Testes de Acessibilidade", level: 1 }
     ],
     content: `
       <h1>Desenvolvimento Web Acessível</h1>
       <p>Um guia prático para implementar acessibilidade em elementos específicos do seu site.</p>
+
+      <h2 id="principios">Princípios Fundamentais</h2>
+
+      <h3>1. Semântica HTML</h3>
+      <ul>
+        <li>Use elementos HTML com significado semântico apropriado</li>
+        <li>Estruture o conteúdo hierarquicamente</li>
+        <li>Evite usar divs e spans quando existir um elemento semântico mais apropriado</li>
+      </ul>
+
+      <h3>2. Estrutura do Documento</h3>
+      <ul>
+        <li>Use landmarks para definir regiões importantes (header, main, nav, footer)</li>
+        <li>Organize o conteúdo em seções lógicas</li>
+        <li>Mantenha uma hierarquia clara de cabeçalhos (h1-h6)</li>
+      </ul>
+
+      <h3>3. Interatividade</h3>
+      <ul>
+        <li>Garanta que todas as interações possam ser feitas via teclado</li>
+        <li>Forneça feedback claro para todas as ações</li>
+        <li>Mantenha estados focáveis visíveis e distinguíveis</li>
+      </ul>
+
+      <h2 id="design">Design Inclusivo</h2>
+
+      <h3>1. Cores e Contrastes</h3>
+      <ul>
+        <li>Use uma paleta de cores com contraste adequado (mínimo 4.5:1 para texto normal)</li>
+        <li>Não transmita informações apenas através de cores</li>
+        <li>Considere diferentes tipos de daltonismo</li>
+      </ul>
+
+      <h3>2. Tipografia</h3>
+      <ul>
+        <li>Escolha fontes legíveis e com boa leiturabilidade</li>
+        <li>Mantenha um tamanho de texto adequado (mínimo 16px para corpo de texto)</li>
+        <li>Use espaçamento adequado entre linhas e parágrafos</li>
+      </ul>
+
+      <h3>3. Layout Responsivo</h3>
+      <ul>
+        <li>Projete para diferentes tamanhos de tela</li>
+        <li>Permita zoom até 400% sem perda de funcionalidade</li>
+        <li>Mantenha a ordem lógica do conteúdo em diferentes layouts</li>
+      </ul>
+
+      <h2 id="navegacao">Navegação</h2>
+
+      <h3>1. Menu Principal</h3>
+      <ul>
+        <li>Estruture menus usando listas (&lt;ul&gt;, &lt;li&gt;)</li>
+        <li>Indique o item atual no menu</li>
+        <li>Forneça múltiplas formas de navegação</li>
+      </ul>
+
+      <h3>2. Skip Links</h3>
+      <ul>
+        <li>Adicione links para pular para o conteúdo principal</li>
+        <li>Torne skip links visíveis quando focados</li>
+        <li>Posicione no topo da página</li>
+      </ul>
+
+      <h3>3. Breadcrumbs</h3>
+      <ul>
+        <li>Use para sites com hierarquia profunda</li>
+        <li>Indique a posição atual na navegação</li>
+        <li>Mantenha consistência em todas as páginas</li>
+      </ul>
 
       <h2 id="images">Imagens</h2>
       <p>As imagens são elementos fundamentais para a web moderna, mas precisam ser implementadas corretamente.</p>
@@ -462,6 +534,55 @@ export function ContactForm() {
     &lt;/form&gt;
   );
 }</code></pre>
+
+      <h2 id="testing">Testes de Acessibilidade</h2>
+
+      <h3>1. Testes Automáticos</h3>
+      <ul>
+        <li>Use ferramentas como WAVE, aXe, ou Lighthouse</li>
+        <li>Verifique problemas de contraste e estrutura HTML</li>
+        <li>Execute testes em diferentes páginas do site</li>
+      </ul>
+
+      <h3>2. Testes Manuais</h3>
+      <ul>
+        <li>Navegue usando apenas teclado</li>
+        <li>Teste com diferentes leitores de tela</li>
+        <li>Verifique funcionalidades com zoom ativado</li>
+      </ul>
+
+      <h3>3. Testes com Usuários</h3>
+      <ul>
+        <li>Inclua pessoas com diferentes necessidades</li>
+        <li>Observe padrões de uso e dificuldades</li>
+        <li>Colete feedback e implemente melhorias</li>
+      </ul>
+
+      <h3>Ferramentas Recomendadas</h3>
+      <ul>
+        <li>Leitores de tela: NVDA (Windows), VoiceOver (Mac), JAWS</li>
+        <li>Extensões: WAVE, aXe, Lighthouse</li>
+        <li>Simuladores de daltonismo</li>
+        <li>Verificadores de contraste</li>
+      </ul>
+
+      <h3>Recursos para Desenvolvimento</h3>
+      <ul>
+        <li>HTML5 Accessibility</li>
+        <li>MDN Web Docs - Accessibility</li>
+        <li>WebAIM Articles and Resources</li>
+        <li>A11Y Project</li>
+      </ul>
+
+      <div class="bg-muted p-4 rounded-lg mt-8">
+        <h3 class="text-lg font-medium mb-2">Dicas de Implementação</h3>
+        <ul>
+          <li>Comece com HTML semântico desde o início do projeto</li>
+          <li>Integre testes de acessibilidade no processo de desenvolvimento</li>
+          <li>Documente decisões e padrões de acessibilidade</li>
+          <li>Mantenha uma checklist de verificação</li>
+        </ul>
+      </div>
 
       <div class="bg-muted p-4 rounded-lg mt-8">
         <h3 class="text-lg font-medium mb-2">
