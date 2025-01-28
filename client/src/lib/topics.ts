@@ -259,85 +259,552 @@ export const topics = [
   {
     id: "dev-guidelines",
     title: "Desenvolvimento Web Acessível",
-    description: "Guia prático para criar sites acessíveis com foco em elementos específicos",
+    description: "Guia prático para criar sites acessíveis com foco em elementos específicos e exemplos de código",
     sections: [
       { id: "images", title: "Imagens", level: 1 },
+      { id: "images-examples", title: "Exemplos de Implementação", level: 2 },
       { id: "images-checklist", title: "Checklist de Imagens", level: 2 },
       { id: "images-wcag", title: "WCAG para Imagens", level: 2 },
       { id: "videos", title: "Vídeos", level: 1 },
+      { id: "videos-examples", title: "Exemplos de Implementação", level: 2 },
       { id: "videos-checklist", title: "Checklist de Vídeos", level: 2 },
       { id: "videos-wcag", title: "WCAG para Vídeos", level: 2 },
       { id: "semantic", title: "Semântica HTML", level: 1 },
+      { id: "semantic-examples", title: "Exemplos de Implementação", level: 2 },
       { id: "semantic-checklist", title: "Checklist de Semântica", level: 2 },
-      { id: "semantic-wcag", title: "WCAG para Semântica", level: 2 }
+      { id: "semantic-wcag", title: "WCAG para Semântica", level: 2 },
+      { id: "react", title: "Componentes React Acessíveis", level: 1 },
+      { id: "react-examples", title: "Exemplos de Implementação", level: 2 },
+      { id: "react-checklist", title: "Checklist de React", level: 2 },
+      { id: "forms", title: "Formulários Acessíveis", level: 1 },
+      { id: "forms-examples", title: "Exemplos de Implementação", level: 2 },
+      { id: "forms-checklist", title: "Checklist de Formulários", level: 2 }
     ],
     content: `
       <h1>Desenvolvimento Web Acessível</h1>
-      <p>Um guia prático para implementar acessibilidade em elementos específicos do seu site.</p>
+      <p>Um guia prático e detalhado para implementar acessibilidade em elementos específicos do seu site, com exemplos de código e melhores práticas.</p>
 
       <h2 id="images">Imagens</h2>
       <p>As imagens são elementos fundamentais para a web moderna, mas precisam ser implementadas corretamente para serem acessíveis.</p>
 
-      <h3 id="images-checklist">Checklist de Imagens</h3>
-      <ul>
-        <li>✓ Todas as imagens possuem texto alternativo (alt)</li>
-        <li>✓ Imagens decorativas têm alt="" vazio</li>
-        <li>✓ Imagens complexas têm descrições longas</li>
-        <li>✓ Infográficos têm versões em texto</li>
-        <li>✓ Contraste adequado entre texto e fundo</li>
-        <li>✓ Não há informação transmitida apenas por cores</li>
-      </ul>
+      <h3 id="images-examples">Exemplos de Implementação</h3>
 
-      <h3 id="images-wcag">WCAG para Imagens</h3>
-      <ul>
-        <li><strong>1.1.1 Conteúdo Não Textual</strong> - Fornecer alternativas em texto</li>
-        <li><strong>1.4.3 Contraste</strong> - Garantir contraste adequado</li>
-        <li><strong>1.4.5 Imagens de Texto</strong> - Evitar texto em imagens</li>
-        <li><strong>1.4.11 Contraste Não Textual</strong> - Contraste em elementos gráficos</li>
-      </ul>
+      <h4>HTML Básico</h4>
+      <pre><code class="language-html">&lt;!-- Imagem com texto alternativo --&gt;
+&lt;img 
+  src="/caminho/para/imagem.jpg" 
+  alt="Descrição clara da imagem"
+  loading="lazy" 
+/&gt;
+
+&lt;!-- Imagem decorativa --&gt;
+&lt;img 
+  src="/caminho/para/decorativa.jpg" 
+  alt="" 
+  role="presentation"
+/&gt;
+
+&lt;!-- Figura com legenda --&gt;
+&lt;figure&gt;
+  &lt;img 
+    src="/caminho/para/grafico.jpg" 
+    alt="Descrição detalhada do gráfico"
+  /&gt;
+  &lt;figcaption&gt;Legenda explicativa do gráfico&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+      <h4>Componente React</h4>
+      <pre><code class="language-tsx">import { useState } from 'react';
+import Image from 'next/image';
+
+interface AccessibleImageProps {
+  src: string;
+  alt: string;
+  caption?: string;
+  width: number;
+  height: number;
+}
+
+export function AccessibleImage({ 
+  src, 
+  alt, 
+  caption, 
+  width, 
+  height 
+}: AccessibleImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    &lt;figure className="relative"&gt;
+      &lt;div 
+        className={\`
+          relative overflow-hidden
+          \${!isLoaded ? 'animate-pulse bg-gray-200' : ''}
+        \`}
+        style={{ aspectRatio: width / height }}
+      &gt;
+        &lt;Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          onLoadingComplete={() => setIsLoaded(true)}
+          className={\`
+            object-cover transition-opacity duration-300
+            \${isLoaded ? 'opacity-100' : 'opacity-0'}
+          \`}
+        /&gt;
+      &lt;/div&gt;
+      {caption && (
+        &lt;figcaption className="mt-2 text-sm text-gray-600"&gt;
+          {caption}
+        &lt;/figcaption&gt;
+      )}
+    &lt;/figure&gt;
+  );
+}</code></pre>
+
+      <h3 id="images-checklist">Checklist de Imagens</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 border rounded-lg">
+          <h4 class="font-medium mb-2">Texto Alternativo</h4>
+          <ul class="space-y-2">
+            <li>✓ Alt text descritivo e conciso</li>
+            <li>✓ Alt vazio para imagens decorativas</li>
+            <li>✓ Descrições longas para imagens complexas</li>
+            <li>✓ Contexto adequado no texto alternativo</li>
+          </ul>
+        </div>
+
+        <div class="p-4 border rounded-lg">
+          <h4 class="font-medium mb-2">Performance</h4>
+          <ul class="space-y-2">
+            <li>✓ Carregamento lazy para imagens</li>
+            <li>✓ Formato de imagem otimizado</li>
+            <li>✓ Dimensões responsivas</li>
+            <li>✓ Estados de carregamento</li>
+          </ul>
+        </div>
+
+        <div class="p-4 border rounded-lg">
+          <h4 class="font-medium mb-2">Visual</h4>
+          <ul class="space-y-2">
+            <li>✓ Contraste adequado</li>
+            <li>✓ Não depende apenas de cores</li>
+            <li>✓ Legível em diferentes tamanhos</li>
+            <li>✓ Suporte a modo escuro</li>
+          </ul>
+        </div>
+
+        <div class="p-4 border rounded-lg">
+          <h4 class="font-medium mb-2">Técnico</h4>
+          <ul class="space-y-2">
+            <li>✓ Markup semântico correto</li>
+            <li>✓ Atributos ARIA quando necessário</li>
+            <li>✓ Fallbacks para erros</li>
+            <li>✓ Suporte a alto contraste</li>
+          </ul>
+        </div>
+      </div>
 
       <h2 id="videos">Vídeos</h2>
       <p>Conteúdo em vídeo precisa ser acessível para todos os usuários.</p>
 
-      <h3 id="videos-checklist">Checklist de Vídeos</h3>
-      <ul>
-        <li>✓ Legendas para todo conteúdo em áudio</li>
-        <li>✓ Transcrição em texto disponível</li>
-        <li>✓ Audiodescrição para informações visuais importantes</li>
-        <li>✓ Controles de player acessíveis por teclado</li>
-        <li>✓ Opção para pausar, parar e ajustar volume</li>
-        <li>✓ Não há reprodução automática</li>
-      </ul>
+      <h3 id="videos-examples">Exemplos de Implementação</h3>
 
-      <h3 id="videos-wcag">WCAG para Vídeos</h3>
-      <ul>
-        <li><strong>1.2.1 Apenas Áudio e Vídeo</strong> - Alternativas para mídia</li>
-        <li><strong>1.2.2 Legendas</strong> - Legendas para todo conteúdo em áudio</li>
-        <li><strong>1.2.3 Audiodescrição</strong> - Descrição para conteúdo visual</li>
-        <li><strong>1.2.5 Audiodescrição (Pré-gravada)</strong> - Descrição estendida</li>
-      </ul>
+      <h4>HTML com Legendas</h4>
+      <pre><code class="language-html">&lt;!-- Vídeo com legendas e descrição --&gt;
+&lt;figure&gt;
+  &lt;video 
+    controls 
+    preload="metadata"
+    poster="/thumbnail.jpg"
+  &gt;
+    &lt;source src="/video.mp4" type="video/mp4" /&gt;
+    &lt;track 
+      kind="captions" 
+      src="/legendas.vtt" 
+      srclang="pt" 
+      label="Português" 
+    /&gt;
+    &lt;track 
+      kind="descriptions" 
+      src="/descricoes.vtt" 
+      srclang="pt" 
+      label="Descrições" 
+    /&gt;
+    Seu navegador não suporta o elemento video.
+  &lt;/video&gt;
+  &lt;figcaption&gt;
+    Título do vídeo - Clique para ativar legendas
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
 
-      <h2 id="semantic">Semântica HTML</h2>
-      <p>HTML semântico é a base para uma web acessível.</p>
+      <h4>Componente React para Player de Vídeo</h4>
+      <pre><code class="language-tsx">import { useState, useRef } from 'react';
 
-      <h3 id="semantic-checklist">Checklist de Semântica</h3>
-      <ul>
-        <li>✓ Uso apropriado de elementos de cabeçalho (h1-h6)</li>
-        <li>✓ Estrutura de documento clara (header, main, footer)</li>
-        <li>✓ Listas usadas corretamente (ul, ol, dl)</li>
-        <li>✓ Navegação marcada com nav</li>
-        <li>✓ Artigos e seções bem definidos</li>
-        <li>✓ Formulários com labels apropriados</li>
-      </ul>
+interface AccessibleVideoProps {
+  src: string;
+  poster?: string;
+  captions?: {
+    src: string;
+    label: string;
+    language: string;
+  }[];
+  title: string;
+  description?: string;
+}
 
-      <h3 id="semantic-wcag">WCAG para Semântica</h3>
-      <ul>
-        <li><strong>1.3.1 Informação e Relações</strong> - Estrutura lógica</li>
-        <li><strong>2.4.1 Ignorar Blocos</strong> - Navegação consistente</li>
-        <li><strong>2.4.6 Cabeçalhos e Rótulos</strong> - Títulos descritivos</li>
-        <li><strong>4.1.1 Análise</strong> - Marcação válida</li>
-        <li><strong>4.1.2 Nome, Função, Valor</strong> - Interfaces consistentes</li>
-      </ul>
+export function AccessibleVideo({
+  src,
+  poster,
+  captions,
+  title,
+  description
+}: AccessibleVideoProps) {
+  const videoRef = useRef&lt;HTMLVideoElement&gt;(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    &lt;figure className="w-full"&gt;
+      &lt;div 
+        className="relative"
+        role="region"
+        aria-label={\`Player de vídeo: \${title}\`}
+      &gt;
+        &lt;video
+          ref={videoRef}
+          className="w-full"
+          poster={poster}
+          controls
+          preload="metadata"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        &gt;
+          &lt;source src={src} type="video/mp4" /&gt;
+          {captions?.map((caption) => (
+            &lt;track
+              key={caption.language}
+              kind="captions"
+              src={caption.src}
+              srcLang={caption.language}
+              label={caption.label}
+            /&gt;
+          ))}
+        &lt;/video&gt;
+
+        &lt;button
+          className="absolute inset-0 w-full h-full bg-black/50 flex items-center justify-center"
+          onClick={togglePlay}
+          aria-label={isPlaying ? 'Pausar vídeo' : 'Reproduzir vídeo'}
+        &gt;
+          {/* Ícone de play/pause */}
+        &lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;figcaption className="mt-2"&gt;
+        &lt;h3 className="text-lg font-medium"&gt;{title}&lt;/h3&gt;
+        {description && (
+          &lt;p className="mt-1 text-gray-600"&gt;{description}&lt;/p&gt;
+        )}
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+  );
+}</code></pre>
+
+      <h2 id="react">Componentes React Acessíveis</h2>
+      <p>Guia para criar componentes React que seguem as melhores práticas de acessibilidade.</p>
+
+      <h3 id="react-examples">Exemplos de Implementação</h3>
+
+      <h4>Botão Acessível</h4>
+      <pre><code class="language-tsx">interface AccessibleButtonProps {
+  onClick: () => void;
+  children: React.ReactNode;
+  isLoading?: boolean;
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
+  icon?: React.ReactNode;
+}
+
+export function AccessibleButton({
+  onClick,
+  children,
+  isLoading,
+  variant = 'primary',
+  disabled,
+  icon
+}: AccessibleButtonProps) {
+  return (
+    &lt;button
+      onClick={onClick}
+      disabled={disabled || isLoading}
+      className={\`
+        inline-flex items-center gap-2 px-4 py-2 rounded
+        transition-colors focus:outline-none focus:ring-2
+        \${variant === 'primary' 
+          ? 'bg-primary text-white' 
+          : 'bg-gray-100 text-gray-900'
+        }
+        \${disabled || isLoading ? 'opacity-50 cursor-not-allowed' : ''}
+      \`}
+      aria-busy={isLoading}
+    &gt;
+      {icon && &lt;span className="w-4 h-4"&gt;{icon}&lt;/span&gt;}
+      {isLoading ? 'Carregando...' : children}
+    &lt;/button&gt;
+  );
+}</code></pre>
+
+      <h4>Menu Dropdown Acessível</h4>
+      <pre><code class="language-tsx">import { useState, useRef, useEffect } from 'react';
+
+interface MenuItem {
+  id: string;
+  label: string;
+  onSelect: () => void;
+}
+
+interface AccessibleDropdownProps {
+  label: string;
+  items: MenuItem[];
+}
+
+export function AccessibleDropdown({ 
+  label, 
+  items 
+}: AccessibleDropdownProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef&lt;HTMLButtonElement&gt;(null);
+  const menuRef = useRef&lt;HTMLDivElement&gt;(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        !buttonRef.current?.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    switch (event.key) {
+      case 'Escape':
+        setIsOpen(false);
+        buttonRef.current?.focus();
+        break;
+      case 'ArrowDown':
+        if (!isOpen) {
+          setIsOpen(true);
+        }
+        const firstItem = menuRef.current?.querySelector('button');
+        firstItem?.focus();
+        event.preventDefault();
+        break;
+    }
+  };
+
+  return (
+    &lt;div className="relative"&gt;
+      &lt;button
+        ref={buttonRef}
+        onClick={() => setIsOpen(!isOpen)}
+        onKeyDown={handleKeyDown}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        className="px-4 py-2 rounded border"
+      &gt;
+        {label}
+      &lt;/button&gt;
+
+      {isOpen && (
+        &lt;div
+          ref={menuRef}
+          role="menu"
+          aria-orientation="vertical"
+          className="absolute mt-2 py-2 w-48 bg-white rounded-lg shadow-lg"
+        &gt;
+          {items.map((item) => (
+            &lt;button
+              key={item.id}
+              role="menuitem"
+              onClick={() => {
+                item.onSelect();
+                setIsOpen(false);
+              }}
+              className="w-full text-left px-4 py-2 hover:bg-gray-100"
+            &gt;
+              {item.label}
+            &lt;/button&gt;
+          ))}
+        &lt;/div&gt;
+      )}
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+      <h2 id="forms">Formulários Acessíveis</h2>
+      <p>Implementação de formulários acessíveis com validação e feedback apropriado.</p>
+
+      <h3 id="forms-examples">Exemplos de Implementação</h3>
+
+      <h4>Formulário de Contato Acessível</h4>
+      <pre><code class="language-tsx">import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string()
+    .min(1, 'Nome é obrigatório')
+    .max(100, 'Nome muito longo'),
+  email: z.string()
+    .min(1, 'E-mail é obrigatório')
+    .email('E-mail inválido'),
+  message: z.string()
+    .min(10, 'Mensagem deve ter pelo menos 10 caracteres')
+    .max(1000, 'Mensagem muito longa')
+});
+
+type ContactForm = z.infer&lt;typeof contactSchema&gt;;
+
+export function AccessibleContactForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting }
+  } = useForm&lt;ContactForm&gt;({
+    resolver: zodResolver(contactSchema)
+  });
+
+  const onSubmit = async (data: ContactForm) => {
+    // Lógica de envio
+    console.log(data);
+  };
+
+  return (
+    &lt;form 
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-6"
+      noValidate
+    &gt;
+      &lt;div&gt;
+        &lt;label 
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700"
+        &gt;
+          Nome
+        &lt;/label&gt;
+        &lt;input
+          id="name"
+          type="text"
+          {...register('name')}
+          aria-invalid={errors.name ? 'true' : 'false'}
+          aria-describedby={errors.name ? 'name-error' : undefined}
+          className={\`
+            mt-1 block w-full rounded-md border-gray-300 shadow-sm
+            focus:border-primary focus:ring-primary
+            \${errors.name ? 'border-red-500' : ''}
+          \`}
+        /&gt;
+        {errors.name && (
+          &lt;p 
+            id="name-error" 
+            className="mt-1 text-sm text-red-600"
+            role="alert"
+          &gt;
+            {errors.name.message}
+          &lt;/p&gt;
+        )}
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;label 
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700"
+        &gt;
+          E-mail
+        &lt;/label&gt;
+        &lt;input
+          id="email"
+          type="email"
+          {...register('email')}
+          aria-invalid={errors.email ? 'true' : 'false'}
+          aria-describedby={errors.email ? 'email-error' : undefined}
+          className={\`
+            mt-1 block w-full rounded-md border-gray-300 shadow-sm
+            focus:border-primary focus:ring-primary
+            \${errors.email ? 'border-red-500' : ''}
+          \`}
+        /&gt;
+        {errors.email && (
+          &lt;p 
+            id="email-error" 
+            className="mt-1 text-sm text-red-600"
+            role="alert"
+          &gt;
+            {errors.email.message}
+          &lt;/p&gt;
+        )}
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;label 
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700"
+        &gt;
+          Mensagem
+        &lt;/label&gt;
+        &lt;textarea
+          id="message"
+          {...register('message')}
+          rows={4}
+          aria-invalid={errors.message ? 'true' : 'false'}
+          aria-describedby={errors.message ? 'message-error' : undefined}
+          className={\`
+            mt-1 block w-full rounded-md border-gray-300 shadow-sm
+            focus:border-primary focus:ring-primary
+            \${errors.message ? 'border-red-500' : ''}
+          \`}
+        /&gt;
+        {errors.message && (
+          &lt;p 
+            id="message-error"            className="mt-1 text-sm text-red-600"
+            role="alert"
+          &gt;
+            {errors.message.message}
+          &lt;/p&gt;
+        )}
+      &lt;/div&gt;
+
+      &lt;button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+      &gt;
+        {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
+      &lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</code></pre>
 
       <div class="bg-muted p-4 rounded-lg mt-8">
         <h3 class="text-lg font-medium mb-2">Recursos Adicionais</h3>
@@ -345,6 +812,570 @@ export const topics = [
           <li><a href="https://www.w3.org/WAI/tutorials/" target="_blank">W3C Web Accessibility Tutorials</a></li>
           <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank">MDN Web Docs - Accessibility</a></li>
           <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">WCAG Guidelines</a></li>
+          <li><a href="https://react.dev/reference/react/accessibility" target="_blank">React Accessibility Guide</a></li>
+        </ul>
+      </div>
+    `
+  }
+  ,
+  {
+    id: "dev-guidelines",
+    title: "Desenvolvimento Web Acessível",
+    description: "Guia prático para criar sites acessíveis com foco em elementos específicos e exemplos de código",
+    sections: [
+      { id: "images", title: "Imagens", level: 1 },
+      { id: "images-examples", title: "Exemplos de Implementação", level: 2 },
+      { id: "images-checklist", title: "Checklist de Imagens", level: 2 },
+      { id: "images-wcag", title: "WCAG para Imagens", level: 2 },
+      { id: "videos", title: "Vídeos", level: 1 },
+      { id: "videos-examples", title: "Exemplos de Implementação", level: 2 },
+      { id: "videos-checklist", title: "Checklist de Vídeos", level: 2 },
+      { id: "videos-wcag", title: "WCAG para Vídeos", level: 2 },
+      { id: "semantic", title: "Semântica HTML", level: 1 },
+      { id: "semantic-examples", title: "Exemplos de Implementação", level: 2 },
+      { id: "semantic-checklist", title: "Checklist de Semântica", level: 2 },
+      { id: "semantic-wcag", title: "WCAG para Semântica", level: 2 },
+      { id: "react", title: "Componentes React Acessíveis", level: 1 },
+      { id: "react-examples", title: "Exemplos de Implementação", level: 2 },
+      { id: "react-checklist", title: "Checklist de React", level: 2 },
+      { id: "forms", title: "Formulários Acessíveis", level: 1 },
+      { id: "forms-examples", title: "Exemplos de Implementação", level: 2 },
+      { id: "forms-checklist", title: "Checklist de Formulários", level: 2 }
+    ],
+    content: `
+      <h1>Desenvolvimento Web Acessível</h1>
+      <p>Um guia prático e detalhado para implementar acessibilidade em elementos específicos do seu site, com exemplos de código e melhores práticas.</p>
+
+      <h2 id="images">Imagens</h2>
+      <p>As imagens são elementos fundamentais para a web moderna, mas precisam ser implementadas corretamente para serem acessíveis.</p>
+
+      <h3 id="images-examples">Exemplos de Implementação</h3>
+
+      <h4>HTML Básico</h4>
+      <pre><code class="language-html">&lt;!-- Imagem com texto alternativo --&gt;
+&lt;img 
+  src="/caminho/para/imagem.jpg" 
+  alt="Descrição clara da imagem"
+  loading="lazy" 
+/&gt;
+
+&lt;!-- Imagem decorativa --&gt;
+&lt;img 
+  src="/caminho/para/decorativa.jpg" 
+  alt="" 
+  role="presentation"
+/&gt;
+
+&lt;!-- Figura com legenda --&gt;
+&lt;figure&gt;
+  &lt;img 
+    src="/caminho/para/grafico.jpg" 
+    alt="Descrição detalhada do gráfico"
+  /&gt;
+  &lt;figcaption&gt;Legenda explicativa do gráfico&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+      <h4>Componente React</h4>
+      <pre><code class="language-tsx">import { useState } from 'react';
+import Image from 'next/image';
+
+interface AccessibleImageProps {
+  src: string;
+  alt: string;
+  caption?: string;
+  width: number;
+  height: number;
+}
+
+export function AccessibleImage({ 
+  src, 
+  alt, 
+  caption, 
+  width, 
+  height 
+}: AccessibleImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    &lt;figure className="relative"&gt;
+      &lt;div 
+        className={\`
+          relative overflow-hidden
+          \${!isLoaded ? 'animate-pulse bg-gray-200' : ''}
+        \`}
+        style={{ aspectRatio: width / height }}
+      &gt;
+        &lt;Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          onLoadingComplete={() => setIsLoaded(true)}
+          className={\`
+            object-cover transition-opacity duration-300
+            \${isLoaded ? 'opacity-100' : 'opacity-0'}
+          \`}
+        /&gt;
+      &lt;/div&gt;
+      {caption && (
+        &lt;figcaption className="mt-2 text-sm text-gray-600"&gt;
+          {caption}
+        &lt;/figcaption&gt;
+      )}
+    &lt;/figure&gt;
+  );
+}</code></pre>
+
+      <h3 id="images-checklist">Checklist de Imagens</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 border rounded-lg">
+          <h4 class="font-medium mb-2">Texto Alternativo</h4>
+          <ul class="space-y-2">
+            <li>✓ Alt text descritivo e conciso</li>
+            <li>✓ Alt vazio para imagens decorativas</li>
+            <li>✓ Descrições longas para imagens complexas</li>
+            <li>✓ Contexto adequado no texto alternativo</li>
+          </ul>
+        </div>
+
+        <div class="p-4 border rounded-lg">
+          <h4 class="font-medium mb-2">Performance</h4>
+          <ul class="space-y-2">
+            <li>✓ Carregamento lazy para imagens</li>
+            <li>✓ Formato de imagem otimizado</li>
+            <li>✓ Dimensões responsivas</li>
+            <li>✓ Estados de carregamento</li>
+          </ul>
+        </div>
+
+        <div class="p-4 border rounded-lg">
+          <h4 class="font-medium mb-2">Visual</h4>
+          <ul class="space-y-2">
+            <li>✓ Contraste adequado</li>
+            <li>✓ Não depende apenas de cores</li>
+            <li>✓ Legível em diferentes tamanhos</li>
+            <li>✓ Suporte a modo escuro</li>
+          </ul>
+        </div>
+
+        <div class="p-4 border rounded-lg">
+          <h4 class="font-medium mb-2">Técnico</h4>
+          <ul class="space-y-2">
+            <li>✓ Markup semântico correto</li>
+            <li>✓ Atributos ARIA quando necessário</li>
+            <li>✓ Fallbacks para erros</li>
+            <li>✓ Suporte a alto contraste</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="videos">Vídeos</h2>
+      <p>Conteúdo em vídeo precisa ser acessível para todos os usuários.</p>
+
+      <h3 id="videos-examples">Exemplos de Implementação</h3>
+
+      <h4>HTML com Legendas</h4>
+      <pre><code class="language-html">&lt;!-- Vídeo com legendas e descrição --&gt;
+&lt;figure&gt;
+  &lt;video 
+    controls 
+    preload="metadata"
+    poster="/thumbnail.jpg"
+  &gt;
+    &lt;source src="/video.mp4" type="video/mp4" /&gt;
+    &lt;track 
+      kind="captions" 
+      src="/legendas.vtt" 
+      srclang="pt" 
+      label="Português" 
+    /&gt;
+    &lt;track 
+      kind="descriptions" 
+      src="/descricoes.vtt" 
+      srclang="pt" 
+      label="Descrições" 
+    /&gt;
+    Seu navegador não suporta o elemento video.
+  &lt;/video&gt;
+  &lt;figcaption&gt;
+    Título do vídeo - Clique para ativar legendas
+  &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+
+      <h4>Componente React para Player de Vídeo</h4>
+      <pre><code class="language-tsx">import { useState, useRef } from 'react';
+
+interface AccessibleVideoProps {
+  src: string;
+  poster?: string;
+  captions?: {
+    src: string;
+    label: string;
+    language: string;
+  }[];
+  title: string;
+  description?: string;
+}
+
+export function AccessibleVideo({
+  src,
+  poster,
+  captions,
+  title,
+  description
+}: AccessibleVideoProps) {
+  const videoRef = useRef&lt;HTMLVideoElement&gt;(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    &lt;figure className="w-full"&gt;
+      &lt;div 
+        className="relative"
+        role="region"
+        aria-label={\`Player de vídeo: \${title}\`}
+      &gt;
+        &lt;video
+          ref={videoRef}
+          className="w-full"
+          poster={poster}
+          controls
+          preload="metadata"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        &gt;
+          &lt;source src={src} type="video/mp4" /&gt;
+          {captions?.map((caption) => (
+            &lt;track
+              key={caption.language}
+              kind="captions"
+              src={caption.src}
+              srcLang={caption.language}
+              label={caption.label}
+            /&gt;
+          ))}
+        &lt;/video&gt;
+
+        &lt;button
+          className="absolute inset-0 w-full h-full bg-black/50 flex items-center justify-center"
+          onClick={togglePlay}
+          aria-label={isPlaying ? 'Pausar vídeo' : 'Reproduzir vídeo'}
+        &gt;
+          {/* Ícone de play/pause */}
+        &lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;figcaption className="mt-2"&gt;
+        &lt;h3 className="text-lg font-medium"&gt;{title}&lt;/h3&gt;
+        {description && (
+          &lt;p className="mt-1 text-gray-600"&gt;{description}&lt;/p&gt;
+        )}
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+  );
+}</code></pre>
+
+      <h2 id="react">Componentes React Acessíveis</h2>
+      <p>Guia para criar componentes React que seguem as melhores práticas de acessibilidade.</p>
+
+      <h3 id="react-examples">Exemplos de Implementação</h3>
+
+      <h4>Botão Acessível</h4>
+      <pre><code class="language-tsx">interface AccessibleButtonProps {
+  onClick: () => void;
+  children: React.ReactNode;
+  isLoading?: boolean;
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
+  icon?: React.ReactNode;
+}
+
+export function AccessibleButton({
+  onClick,
+  children,
+  isLoading,
+  variant = 'primary',
+  disabled,
+  icon
+}: AccessibleButtonProps) {
+  return (
+    &lt;button
+      onClick={onClick}
+      disabled={disabled || isLoading}
+      className={\`
+        inline-flex items-center gap-2 px-4 py-2 rounded
+        transition-colors focus:outline-none focus:ring-2
+        \${variant === 'primary' 
+          ? 'bg-primary text-white' 
+          : 'bg-gray-100 text-gray-900'
+        }
+        \${disabled || isLoading ? 'opacity-50 cursor-not-allowed' : ''}
+      \`}
+      aria-busy={isLoading}
+    &gt;
+      {icon && &lt;span className="w-4 h-4"&gt;{icon}&lt;/span&gt;}
+      {isLoading ? 'Carregando...' : children}
+    &lt;/button&gt;
+  );
+}</code></pre>
+
+      <h4>Menu Dropdown Acessível</h4>
+      <pre><code class="language-tsx">import { useState, useRef, useEffect } from 'react';
+
+interface MenuItem {
+  id: string;
+  label: string;
+  onSelect: () => void;
+}
+
+interface AccessibleDropdownProps {
+  label: string;
+  items: MenuItem[];
+}
+
+export function AccessibleDropdown({ 
+  label, 
+  items 
+}: AccessibleDropdownProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef&lt;HTMLButtonElement&gt;(null);
+  const menuRef = useRef&lt;HTMLDivElement&gt;(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        !buttonRef.current?.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    switch (event.key) {
+      case 'Escape':
+        setIsOpen(false);
+        buttonRef.current?.focus();
+        break;
+      case 'ArrowDown':
+        if (!isOpen) {
+          setIsOpen(true);
+        }
+        const firstItem = menuRef.current?.querySelector('button');
+        firstItem?.focus();
+        event.preventDefault();
+        break;
+    }
+  };
+
+  return (
+    &lt;div className="relative"&gt;
+      &lt;button
+        ref={buttonRef}
+        onClick={() => setIsOpen(!isOpen)}
+        onKeyDown={handleKeyDown}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        className="px-4 py-2 rounded border"
+      &gt;
+        {label}
+      &lt;/button&gt;
+
+      {isOpen && (
+        &lt;div
+          ref={menuRef}
+          role="menu"
+          aria-orientation="vertical"
+          className="absolute mt-2 py-2 w-48 bg-white rounded-lg shadow-lg"
+        &gt;
+          {items.map((item) => (
+            &lt;button
+              key={item.id}
+              role="menuitem"
+              onClick={() => {
+                item.onSelect();
+                setIsOpen(false);
+              }}
+              className="w-full text-left px-4 py-2 hover:bg-gray-100"
+            &gt;
+              {item.label}
+            &lt;/button&gt;
+          ))}
+        &lt;/div&gt;
+      )}
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+      <h2 id="forms">Formulários Acessíveis</h2>
+      <p>Implementação de formulários acessíveis com validação e feedback apropriado.</p>
+
+      <h3 id="forms-examples">Exemplos de Implementação</h3>
+
+      <h4>Formulário de Contato Acessível</h4>
+      <pre><code class="language-tsx">import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string()
+    .min(1, 'Nome é obrigatório')
+    .max(100, 'Nome muito longo'),
+  email: z.string()
+    .min(1, 'E-mail é obrigatório')
+    .email('E-mail inválido'),
+  message: z.string()
+    .min(10, 'Mensagem deve ter pelo menos 10 caracteres')
+    .max(1000, 'Mensagem muito longa')
+});
+
+type ContactForm = z.infer&lt;typeof contactSchema&gt;;
+
+export function AccessibleContactForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting }
+  } = useForm&lt;ContactForm&gt;({
+    resolver: zodResolver(contactSchema)
+  });
+
+  const onSubmit = async (data: ContactForm) => {
+    // Lógica de envio
+    console.log(data);
+  };
+
+  return (
+    &lt;form 
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-6"
+      noValidate
+    &gt;
+      &lt;div&gt;
+        &lt;label 
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700"
+        &gt;
+          Nome
+        &lt;/label&gt;
+        &lt;input
+          id="name"
+          type="text"
+          {...register('name')}
+          aria-invalid={errors.name ? 'true' : 'false'}
+          aria-describedby={errors.name ? 'name-error' : undefined}
+          className={\`
+            mt-1 block w-full rounded-md border-gray-300 shadow-sm
+            focus:border-primary focus:ring-primary
+            \${errors.name ? 'border-red-500' : ''}
+          \`}
+        /&gt;
+        {errors.name && (
+          &lt;p 
+            id="name-error" 
+            className="mt-1 text-sm text-red-600"
+            role="alert"
+          &gt;
+            {errors.name.message}
+          &lt;/p&gt;
+        )}
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;label 
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700"
+        &gt;
+          E-mail
+        &lt;/label&gt;
+        &lt;input
+          id="email"
+          type="email"
+          {...register('email')}
+          aria-invalid={errors.email ? 'true' : 'false'}
+          aria-describedby={errors.email ? 'email-error' : undefined}
+          className={\`
+            mt-1 block w-full rounded-md border-gray-300 shadow-sm
+            focus:border-primary focus:ring-primary
+            \${errors.email ? 'border-red-500' : ''}
+          \`}
+        /&gt;
+        {errors.email && (
+          &lt;p 
+            id="email-error" 
+            className="mt-1 text-sm text-red-600"
+            role="alert"
+          &gt;
+            {errors.email.message}
+          &lt;/p&gt;
+        )}
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;label 
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700"
+        &gt;
+          Mensagem
+        &lt;/label&gt;
+        &lt;textarea
+          id="message"
+          {...register('message')}
+          rows={4}
+          aria-invalid={errors.message ? 'true' : 'false'}
+          aria-describedby={errors.message ? 'message-error' : undefined}
+          className={\`
+            mt-1 block w-full rounded-md border-gray-300 shadow-sm
+            focus:border-primary focus:ring-primary
+            \${errors.message ? 'border-red-500' : ''}
+          \`}
+        /&gt;
+        {errors.message && (
+          &lt;p 
+            id="message-error" 
+            className="mt-1 text-sm text-red-600"
+            role="alert"
+          &gt;
+            {errors.message.message}
+          &lt;/p&gt;
+        )}
+      &lt;/div&gt;
+
+      &lt;button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+      &gt;
+        {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
+      &lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</code></pre>
+
+      <div class="bg-muted p-4 rounded-lg mt-8">
+        <h3 class="text-lg font-medium mb-2">Recursos Adicionais</h3>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/tutorials/" target="_blank">W3C Web Accessibility Tutorials</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank">MDN Web Docs - Accessibility</a></li>
+          <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">WCAG Guidelines</a></li>
+          <li><a href="https://react.dev/reference/react/accessibility" target="_blank">React Accessibility Guide</a></li>
         </ul>
       </div>
     `
