@@ -255,5 +255,98 @@ export const topics = [
         elementos ARIA estão sendo implementados corretamente.</p>
       </div>
     `
+  },
+  {
+    id: "dev-guidelines",
+    title: "Desenvolvimento Web Acessível",
+    description: "Guia prático para criar sites acessíveis com foco em elementos específicos",
+    sections: [
+      { id: "images", title: "Imagens", level: 1 },
+      { id: "images-checklist", title: "Checklist de Imagens", level: 2 },
+      { id: "images-wcag", title: "WCAG para Imagens", level: 2 },
+      { id: "videos", title: "Vídeos", level: 1 },
+      { id: "videos-checklist", title: "Checklist de Vídeos", level: 2 },
+      { id: "videos-wcag", title: "WCAG para Vídeos", level: 2 },
+      { id: "semantic", title: "Semântica HTML", level: 1 },
+      { id: "semantic-checklist", title: "Checklist de Semântica", level: 2 },
+      { id: "semantic-wcag", title: "WCAG para Semântica", level: 2 }
+    ],
+    content: `
+      <h1>Desenvolvimento Web Acessível</h1>
+      <p>Um guia prático para implementar acessibilidade em elementos específicos do seu site.</p>
+
+      <h2 id="images">Imagens</h2>
+      <p>As imagens são elementos fundamentais para a web moderna, mas precisam ser implementadas corretamente para serem acessíveis.</p>
+
+      <h3 id="images-checklist">Checklist de Imagens</h3>
+      <ul>
+        <li>✓ Todas as imagens possuem texto alternativo (alt)</li>
+        <li>✓ Imagens decorativas têm alt="" vazio</li>
+        <li>✓ Imagens complexas têm descrições longas</li>
+        <li>✓ Infográficos têm versões em texto</li>
+        <li>✓ Contraste adequado entre texto e fundo</li>
+        <li>✓ Não há informação transmitida apenas por cores</li>
+      </ul>
+
+      <h3 id="images-wcag">WCAG para Imagens</h3>
+      <ul>
+        <li><strong>1.1.1 Conteúdo Não Textual</strong> - Fornecer alternativas em texto</li>
+        <li><strong>1.4.3 Contraste</strong> - Garantir contraste adequado</li>
+        <li><strong>1.4.5 Imagens de Texto</strong> - Evitar texto em imagens</li>
+        <li><strong>1.4.11 Contraste Não Textual</strong> - Contraste em elementos gráficos</li>
+      </ul>
+
+      <h2 id="videos">Vídeos</h2>
+      <p>Conteúdo em vídeo precisa ser acessível para todos os usuários.</p>
+
+      <h3 id="videos-checklist">Checklist de Vídeos</h3>
+      <ul>
+        <li>✓ Legendas para todo conteúdo em áudio</li>
+        <li>✓ Transcrição em texto disponível</li>
+        <li>✓ Audiodescrição para informações visuais importantes</li>
+        <li>✓ Controles de player acessíveis por teclado</li>
+        <li>✓ Opção para pausar, parar e ajustar volume</li>
+        <li>✓ Não há reprodução automática</li>
+      </ul>
+
+      <h3 id="videos-wcag">WCAG para Vídeos</h3>
+      <ul>
+        <li><strong>1.2.1 Apenas Áudio e Vídeo</strong> - Alternativas para mídia</li>
+        <li><strong>1.2.2 Legendas</strong> - Legendas para todo conteúdo em áudio</li>
+        <li><strong>1.2.3 Audiodescrição</strong> - Descrição para conteúdo visual</li>
+        <li><strong>1.2.5 Audiodescrição (Pré-gravada)</strong> - Descrição estendida</li>
+      </ul>
+
+      <h2 id="semantic">Semântica HTML</h2>
+      <p>HTML semântico é a base para uma web acessível.</p>
+
+      <h3 id="semantic-checklist">Checklist de Semântica</h3>
+      <ul>
+        <li>✓ Uso apropriado de elementos de cabeçalho (h1-h6)</li>
+        <li>✓ Estrutura de documento clara (header, main, footer)</li>
+        <li>✓ Listas usadas corretamente (ul, ol, dl)</li>
+        <li>✓ Navegação marcada com nav</li>
+        <li>✓ Artigos e seções bem definidos</li>
+        <li>✓ Formulários com labels apropriados</li>
+      </ul>
+
+      <h3 id="semantic-wcag">WCAG para Semântica</h3>
+      <ul>
+        <li><strong>1.3.1 Informação e Relações</strong> - Estrutura lógica</li>
+        <li><strong>2.4.1 Ignorar Blocos</strong> - Navegação consistente</li>
+        <li><strong>2.4.6 Cabeçalhos e Rótulos</strong> - Títulos descritivos</li>
+        <li><strong>4.1.1 Análise</strong> - Marcação válida</li>
+        <li><strong>4.1.2 Nome, Função, Valor</strong> - Interfaces consistentes</li>
+      </ul>
+
+      <div class="bg-muted p-4 rounded-lg mt-8">
+        <h3 class="text-lg font-medium mb-2">Recursos Adicionais</h3>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/tutorials/" target="_blank">W3C Web Accessibility Tutorials</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank">MDN Web Docs - Accessibility</a></li>
+          <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">WCAG Guidelines</a></li>
+        </ul>
+      </div>
+    `
   }
 ];
