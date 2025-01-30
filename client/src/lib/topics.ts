@@ -2,8 +2,7 @@ export const topics = [
   {
     id: "accessibility-guidelines",
     title: "Diretrizes de Acessibilidade",
-    description:
-      "Recomendações para garantir acessibilidade em aplicações web, com base no eMAG e WCAG 2.0",
+    description: "Recomendações basicas de principios de acessibilidade em desenvolvimento WEB",
     sections: [
       { id: "1", title: "Organização e Navegação Compreensíveis", level: 1 },
       { id: "2", title: "Títulos Claros e Objetivos", level: 1 },
@@ -23,6 +22,17 @@ export const topics = [
       { id: "16", title: "Contraste Visual e Personalização", level: 1 },
     ],
     content: `
+
+            <p>
+                <strong>Diretrizes de Acessibilidade</strong> são recomendações basicas criadas com base em junção de criterios da WCAG e do guia brasileiro de acessibilidade. E tem como objetivo proporcionar uma base para a criação de sites e aplicativos acessíveis de maneira mais resumida porem mantendo o essencial de acessibilidade.
+
+                <p> Em resumo este guia funciona de seguinte maneira:
+                <ul>
+                    <li> <strong>Criterios de sucesso:<strong> O que deve acontecer para que a aplicação seja considerada um sucesso.
+                    <li> <strong>Objetivo:<strong> O que é o objetivo da aplicação.
+                    <li> <strong>O que fazer:<strong> Como aplicar o criterio.
+                </ul>
+    
       <h2 id="1">1 – Organização e Navegação Compreensíveis</h2>
       <p>
         Cada elemento deve estar organizado de forma clara, tanto na aparência quanto no código, 
@@ -344,7 +354,7 @@ export const topics = [
 
       <h3 id="criterios-sucesso-ignorar">Critérios de Sucesso</h3>
       <p>
-        O site deve permitir que os usuários de teclado, ao pressionarem a tecla 
+        O site deve permitir que os usuo�rios de teclado, ao pressionarem a tecla 
         Tab, visualizem a opção de "Pular para o conteúdo". Esse link deve ser 
         acessível logo nos primeiros passos da navegação, sem a necessidade de 
         percorrer elementos repetidos, e direcionar o usuário diretamente ao 
@@ -579,20 +589,68 @@ export const topics = [
   },
   {
     id: "wcag",
-    title: "Diretrizes WCAG 2.1 e Heurísticas de Nielsen",
-    description: "Guia simplificado de acessibilidade e usabilidade web",
+    title: "Diretrizes WCAG 2.2 e Heurísticas de Nielsen",
+    description: "Como usar a WCAG e as Heurísticas de Nielsen no desenvolvimento de um projeto",
     sections: [
-      { id: "perceptivel", title: "Princípio 1: Perceptível", level: 1 },
-      { id: "operavel", title: "Princípio 2: Operável", level: 1 },
-      { id: "compreensivel", title: "Princípio 3: Compreensível", level: 1 },
-      { id: "robusto", title: "Princípio 4: Robusto", level: 1 },
-      { id: "heuristicas", title: "Heurísticas de Nielsen", level: 1 }
+      { id: "niveiswcag", title: "Níveis WCAG", level: 1 },
+      { id: "nivelA", title: "Nível A", level: 2 },
+      { id: "nivelAA", title: "Nível AA", level: 2 },
+      { id: "nivelAAA", title: "Nível AAA", level: 2 },
+      { id: "principioswcag", title: "Principios", level: 1 },
+      { id: "perceptivel", title: "Princípio 1: Perceptível", level: 2 },
+      { id: "operavel", title: "Princípio 2: Operável", level: 2 },
+      { id: "compreensivel", title: "Princípio 3: Compreensível", level: 2 },
+      { id: "robusto", title: "Princípio 4: Robusto", level: 2 },
+      { id: "heuristicas", title: "Heurísticas de Nielsen", level: 1 },
     ],
     content: `
-      <h1>Acessibilidade e Usabilidade Web</h1>
-      <p>Um guia prático combinando os princípios essenciais de acessibilidade do WCAG 2.1 com as heurísticas de usabilidade de Nielsen.</p>
+      <h2>Acessibilidade e Usabilidade Web</h1>
+      <p>A WCAG (Web Content Accessibility Guidelines) é um conjunto de diretrizes criado para tornar a web mais acessível para todas as pessoas, incluindo aquelas com deficiências. Essas diretrizes ajudam desenvolvedores e designers a criar sites e aplicativos que podem ser usados por pessoas com dificuldades visuais, auditivas, motoras ou cognitivas.<p>
 
-      <h2 id="perceptivel">Princípio 1: Perceptível</h2>
+Seguir a WCAG melhora a experiência do usuário, garantindo que o conteúdo seja perceptível, operável, compreensível e robusto. Isso significa, por exemplo, usar descrições alternativas para imagens, permitir navegação por teclado e oferecer legendas para vídeos. Além de ser essencial para inclusão digital, a acessibilidade também beneficia empresas e instituições ao ampliar seu alcance e cumprir legislações sobre acessibilidade.
+
+Adotar a WCAG não é apenas uma boa prática, mas um passo fundamental para tornar a web mais justa e acessível para todos.</p>
+<li><a href="https://www.w3c.br/traducoes/wcag/wcag22-pt-BR/" target="_blank">WCAG 2.2 em português</a></li>
+<h2 id ="niveiswcag">Níveis WCAG</h2>
+<p>A WCAG estabelece três níveis de conformidade para garantir a acessibilidade de sites e conteúdos digitais: A, AA e AAA. Cada nível abrange um conjunto de critérios a serem atendidos, permitindo que o conteúdo seja acessível a um público mais amplo, independentemente de suas necessidades.</p>
+
+<h3 id="nivelA">Nível A (Essencial) – Acessibilidade Mínima</h3>
+<p>O nível A representa os requisitos fundamentais para tornar um site acessível. Embora seja a base mínima para garantir acessibilidade, ele não assegura a melhor experiência de uso. Exemplos de critérios do nível A incluem:</p>
+<ul>
+  <li><strong>Texto Alternativo:</strong> Todas as imagens devem ter uma descrição (atributo alt) para leitores de tela.</li>
+  <li><strong>Navegação por Teclado:</strong> O site deve ser totalmente navegável sem o uso do mouse.</li>
+  <li><strong>Evitar Conteúdo Piscante:</strong> Elementos que piscam não devem ultrapassar 3 flashes por segundo para evitar crises epilépticas.</li>
+</ul>
+
+<h3 id="nivelAA">Nível AA (Recomendado) – Acessibilidade Refinada</h3>
+<p>O nível AA amplia os critérios do nível A, assegurando uma experiência mais acessível e ajustada às necessidades dos usuários. Este nível é frequentemente exigido por regulamentações de acessibilidade em vários países. Exemplos incluem:</p>
+<ul>
+  <li><strong>Contraste Adequado:</strong> O contraste entre o texto e o fundo deve ser de pelo menos 4.5:1, facilitando a leitura.</li>
+  <li><strong>Legendas em Vídeos:</strong> Todo conteúdo em vídeo deve possuir legendas para usuários surdos ou com deficiência auditiva.</li>
+  <li><strong>Conteúdo Reajustável:</strong> O site deve ser responsivo, permitindo ajustes sem comprometer a funcionalidade.</li>
+</ul>
+
+<h3 id="nivelAAA">Nível AAA (Avançado) – Acessibilidade Completa</h3>
+<p>O nível AAA é o mais rigoroso, focando em melhorias adicionais para garantir a máxima acessibilidade. Embora não seja obrigatório na maioria dos casos, é altamente recomendado para sites que buscam oferecer uma experiência inclusiva para todos. Exemplos incluem:</p>
+<ul>
+  <li><strong>Contraste Maior:</strong> O contraste entre texto e fundo deve ser de pelo menos 7:1.</li>
+  <li><strong>Audiodescrição Detalhada:</strong> Vídeos devem incluir descrições narradas para pessoas cegas.</li>
+  <li><strong>Sem Limite de Tempo:</strong> O site deve permitir interação sem imposição de restrições de tempo.</li>
+</ul>
+
+<h3>Escolhendo o Nível de Acessibilidade</h3>
+<p>Existem diferentes opções para implementar os níveis de conformidade da WCAG:</p>
+<ul>
+  <li><strong>Nível A:</strong> Essencial, mas pode não garantir acessibilidade completa.</li>
+  <li><strong>Nível AA:</strong> O mais recomendado, sendo exigido por muitas legislações de acessibilidade.</li>
+  <li><strong>Nível AAA:</strong> Ideal para máxima inclusão, embora seja desafiador de implementar por completo.</li>
+</ul>
+<p>O objetivo principal é garantir pelo menos o nível AA, visando uma experiência mais inclusiva para o maior número de usuários possível. 🌍</p>
+
+      <h2 id= "principioswcag"> Princípios WCAG</h2>
+      <p>A WCAG divide os temas em quatro princípios, cada um cobre uma area de conteudo ao desenvolvimento</p>
+      
+      <h3 id="perceptivel">Princípio 1: Perceptível</h2>
       <p>Todos os usuários devem conseguir perceber o conteúdo, independente de suas limitações:</p>
       <ul>
         <li>Forneça alternativas em texto para conteúdo não textual (imagens, vídeos)</li>
@@ -600,7 +658,7 @@ export const topics = [
         <li>Torne fácil para os usuários ver e ouvir o conteúdo</li>
       </ul>
 
-      <h2 id="operavel">Princípio 2: Operável</h2>
+      <h3 id="operavel">Princípio 2: Operável</h2>
       <p>A interface deve ser navegável e utilizável por todos:</p>
       <ul>
         <li>Torne todas as funcionalidades acessíveis via teclado</li>
@@ -608,7 +666,7 @@ export const topics = [
         <li>Ajude os usuários a navegar e encontrar conteúdo</li>
       </ul>
 
-      <h2 id="compreensivel">Princípio 3: Compreensível</h2>
+      <h3 id="compreensivel">Princípio 3: Compreensível</h2>
       <p>O conteúdo e operação devem ser fáceis de entender:</p>
       <ul>
         <li>Use linguagem clara e simples</li>
@@ -616,7 +674,7 @@ export const topics = [
         <li>Ajude os usuários a evitar e corrigir erros</li>
       </ul>
 
-      <h2 id="robusto">Princípio 4: Robusto</h2>
+      <h3 id="robusto">Princípio 4: Robusto</h2>
       <p>O conteúdo deve funcionar bem em diferentes tecnologias:</p>
       <ul>
         <li>Seja compatível com tecnologias assistivas</li>
@@ -624,68 +682,34 @@ export const topics = [
       </ul>
 
       <h2 id="heuristicas">Heurísticas de Nielsen</h2>
-      <p>Dez princípios fundamentais de usabilidade:</p>
+<p>As <strong>Heurísticas de Nielsen</strong> são princípios essenciais para avaliar a usabilidade de interfaces digitais. Criadas por <strong>Jakob Nielsen</strong>, essas heurísticas ajudam designers e desenvolvedores a identificar problemas de usabilidade e melhorar a experiência do usuário. A seguir, veremos exemplos práticos de como essas heurísticas se aplicam no design de interfaces.</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <div>
-          <h3>1. Visibilidade do Status</h3>
-          <p>Mantenha os usuários informados sobre o que está acontecendo.</p>
-        </div>
+<h3 id="listheursticas">As 10 Heurísticas de Usabilidade de Nielsen com Exemplos</h3>
+<p>Abaixo estão as 10 heurísticas de Nielsen com exemplos para ilustrar como elas funcionam na prática:</p>
+<ul>
+  <li><strong>Visibilidade do estado do sistema:</strong> Exemplo: Quando você clica em um botão de "carregar mais" em uma página web, um indicador de carregamento aparece, mostrando ao usuário que a ação está sendo processada.</li>
+  <li><strong>Correspondência entre o sistema e o mundo real:</strong> Exemplo: Um aplicativo de finanças usa ícones como "carteira" ou "fatura" para representar conceitos conhecidos, como a ideia de dinheiro ou contas a pagar, facilitando a compreensão do usuário.</li>
+  <li><strong>Controle e liberdade do usuário:</strong> Exemplo: Em um formulário de cadastro, o usuário pode corrigir qualquer erro antes de finalizar, como editar um campo de email incorreto, sem ter que recomeçar o processo do início.</li>
+  <li><strong>Consistência e padrões:</strong> Exemplo: Em um site de e-commerce, o botão "adicionar ao carrinho" sempre tem a mesma cor e posição em todas as páginas de produtos, criando uma experiência previsível e consistente para o usuário.</li>
+  <li><strong>Prevenção de erros:</strong> Exemplo: Em um sistema de upload de arquivos, o aplicativo só permite que arquivos de tipos suportados sejam selecionados, evitando o erro de tentar fazer upload de um arquivo incompatível.</li>
+  <li><strong>Reconhecimento ao invés de recordação:</strong> Exemplo: Um aplicativo de mensagens oferece sugestões de palavras enquanto o usuário digita, em vez de exigir que ele se lembre de palavras ou frases inteiras, tornando a experiência mais fluida e intuitiva.</li>
+  <li><strong>Flexibilidade e eficiência de uso:</strong> Exemplo: Um editor de texto oferece atalhos de teclado para usuários experientes, permitindo que eles editem documentos mais rapidamente, enquanto ainda mantém uma interface simples e acessível para novatos.</li>
+  <li><strong>Estética e design minimalista:</strong> Exemplo: Um site de receitas mantém uma interface limpa, sem excesso de informações, destacando apenas as receitas e seus ingredientes, o que facilita a navegação e evita sobrecarga de informações.</li>
+  <li><strong>Ajudar os usuários a reconhecer, diagnosticar e recuperar de erros:</strong> Exemplo: Quando um usuário tenta fazer login com uma senha errada, o sistema mostra uma mensagem clara, como "Senha incorreta. Tente novamente", em vez de uma mensagem genérica de erro.</li>
+  <li><strong>Ajuda e documentação:</strong> Exemplo: Um aplicativo de edição de fotos oferece um tutorial interativo na primeira vez que o usuário o abre, explicando os principais recursos e como usá-los, além de um centro de ajuda acessível sempre que necessário.</li>
+</ul>
 
-        <div>
-          <h3>2. Linguagem do Usuário</h3>
-          <p>Use palavras e conceitos familiares ao usuário.</p>
-        </div>
+<h3>Importância das Heurísticas de Nielsen</h3>
+<p>As heurísticas de Nielsen são fundamentais para garantir que uma interface seja fácil de usar e eficiente. Elas ajudam a identificar e corrigir problemas de usabilidade antes que eles afetem a experiência do usuário. Por exemplo, se um site não tiver feedback claro de carregamento ao clicar em um botão, os usuários podem ficar confusos e pensar que o site não está funcionando.</p>
+<p>Essas heurísticas também evitam que o design se torne confuso ou sobrecarregado. Por exemplo, um site de e-commerce com muitos pop-ups e banners pode distrair os usuários e dificultar a navegação, mas ao seguir a heurística de "estética e design minimalista", o site pode ser mais agradável e focado no que realmente importa.</p>
 
-        <div>
-          <h3>3. Controle e Liberdade</h3>
-          <p>Permita desfazer e refazer ações facilmente.</p>
-        </div>
+<h3>Aplicação Prática</h3>
+<p>As heurísticas de Nielsen são aplicadas em auditorias de usabilidade, onde os especialistas revisam interfaces de acordo com esses princípios. Por exemplo, ao avaliar um aplicativo de mensagens, um especialista pode identificar problemas de "visibilidade do estado do sistema", como a falta de um indicador de envio de mensagem, e sugerir a adição de um ícone de carregamento para informar o usuário de que a mensagem está sendo enviada.</p>
 
-        <div>
-          <h3>4. Consistência</h3>
-          <p>Mantenha padrões em toda a interface.</p>
-        </div>
+<p>Em resumo, as heurísticas de Nielsen ajudam a criar interfaces digitais mais eficazes e agradáveis de usar. Elas fornecem uma base sólida para melhorar a usabilidade, garantir que o sistema seja intuitivo e prevenir erros que possam frustrar os usuários.</p>
 
-        <div>
-          <h3>5. Prevenção de Erros</h3>
-          <p>Previna problemas antes que aconteçam.</p>
-        </div>
-
-        <div>
-          <h3>6. Reconhecimento</h3>
-          <p>Mostre opções visíveis em vez de exigir memorização.</p>
-        </div>
-
-        <div>
-          <h3>7. Flexibilidade</h3>
-          <p>Atenda tanto iniciantes quanto experts.</p>
-        </div>
-
-        <div>
-          <h3>8. Design Minimalista</h3>
-          <p>Evite informações irrelevantes ou raramente necessárias.</p>
-        </div>
-
-        <div>
-          <h3>9. Tratamento de Erros</h3>
-          <p>Ajude a reconhecer e resolver erros.</p>
-        </div>
-
-        <div>
-          <h3>10. Ajuda e Documentação</h3>
-          <p>Forneça ajuda quando necessário.</p>
-        </div>
       </div>
-
-      <div class="bg-muted p-4 rounded-lg mt-8">
-        <h3 class="text-lg font-medium mb-2">Leitura Complementar</h3>
-        <ul>
-          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">Guia Rápido WCAG 2.1</a></li>
-          <li><a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank">Heurísticas de Nielsen</a></li>
-        </ul>
-      </div>
-    `
+    `,
   },
   {
     id: "keyboard",
@@ -696,24 +720,11 @@ export const topics = [
       { id: "browser-shortcuts", title: "Atalhos do Navegador", level: 1 },
       { id: "system-shortcuts", title: "Atalhos do Sistema", level: 1 },
       { id: "page-navigation", title: "Navegação na Página", level: 1 },
-      { id: "shortcuts", title: "Implementando Atalhos", level: 1 }
+      { id: "shortcuts", title: "Implementando Atalhos", level: 1 },
     ],
     content: `
       <h2 id="focus">Gerenciamento de Foco</h2>
       <p>O foco do teclado deve ser sempre visível e seguir uma ordem lógica de navegação. Alguns pontos importantes:</p>
-      
-      <h2 id="browser-shortcuts"> Acessibilidade por Teclado </h2>
-      <p>
-        A navegação por teclado deve ser implementada respeitando os padrões como o WCAG
-        para garantir que os elementos interativos sejam acessíveis por meio da tecla Tab
-        tendo uma sequencia de foco lógica. 
-      <p>
-
-      <p>
-        A navegação por teclado permite que usuários com limitações motoras, deficiências 
-        visuais ou que não utilizam dispositivos apontados, como mouses, interajam com a interface do sistema. 
-      <p>
-      
 
       <h2 id="browser-shortcuts">Atalhos do Navegador</h2>
       <p>Atalhos comuns que funcionam na maioria dos navegadores:</p>
@@ -787,70 +798,269 @@ export const topics = [
         Evite combinações que exijam pressionar muitas teclas simultaneamente e forneça alternativas para 
         ações importantes.</p>
       </div>
-    `
+    `,
   },
+  {
+    id: "dev-tools-accessibility",
+    title: "Ferramentas para Desenvolvedores Web de Acessibilidade",
+    description:
+      "Principais ferramentas para testar e melhorar a acessibilidade em aplicações web.",
+    sections: [
+      { id: "audit", title: "Auditorias Automáticas", level: 1 },
+      { id: "contrast", title: "Verificação de Contraste", level: 1 },
+      { id: "devtools", title: "Ferramentas do Navegador", level: 1 },
+      { id: "manual-testing", title: "Testes Manuais", level: 1 },
+    ],
+    content: `
+      <h2>Ferramentas de Auditoria Automática para Acessibilidade</h2>
+
+<p>Ferramentas de auditoria automática são essenciais para desenvolvedores web que desejam garantir a acessibilidade de seus sites e aplicações. Elas ajudam a identificar problemas de conformidade com as diretrizes da <strong>WCAG (Web Content Accessibility Guidelines)</strong>, sugerindo melhorias para tornar os conteúdos mais acessíveis a todos os usuários, incluindo aqueles com deficiência.</p>
+
+<h3>🔍 Principais Ferramentas de Auditoria Automática e Seus Usos</h3>
+
+<ul>
+  <li>
+    <strong>Lighthouse (Google Chrome DevTools):</strong> Integrado ao Chrome DevTools, avalia acessibilidade, desempenho e SEO. Exemplo: Um desenvolvedor pode rodar o Lighthouse para testar a acessibilidade de um site e descobrir que a relação de contraste entre texto e fundo está inadequada, sugerindo um ajuste na paleta de cores.
+  </li>
+  <li>
+    <strong>axe DevTools (Deque Systems):</strong> Extensão para Chrome e Firefox que identifica problemas de acessibilidade e sugere soluções. Exemplo: Um site de e-commerce pode usar o axe DevTools para encontrar botões sem rótulos adequados para leitores de tela e corrigi-los.
+  </li>
+  <li>
+    <strong>WAVE (Web Accessibility Evaluation Tool):</strong> Ferramenta online que analisa contrastes, estrutura de cabeçalhos e elementos ARIA. Exemplo: Um desenvolvedor pode usar o WAVE para revisar a hierarquia de títulos de uma página, garantindo que usuários com deficiência visual possam navegar facilmente pelo conteúdo.
+  </li>
+  <li>
+    <strong>Pa11y:</strong> Ferramenta de linha de comando para auditoria automática, ideal para integração em pipelines de CI/CD. Exemplo: Uma equipe de desenvolvimento pode configurar o Pa11y para rodar verificações automáticas em cada novo deploy e garantir que nenhuma atualização quebre padrões de acessibilidade.
+  </li>
+  <li>
+    <strong>Siteimprove Accessibility Checker:</strong> Extensão para navegador que oferece análise detalhada focada na WCAG. Exemplo: Um editor de blog pode usar o Siteimprove para validar acessibilidade antes de publicar um novo artigo, evitando links mal descritos ou imagens sem texto alternativo.
+  </li>
+  <li>
+    <strong>Tenon.io:</strong> API de acessibilidade usada para validação contínua. Exemplo: Uma empresa pode integrar o Tenon.io ao seu CMS para verificar automaticamente a acessibilidade de cada nova postagem antes da publicação.
+  </li>
+</ul>
+
+<h3>🚀 Benefícios da Auditoria Automática na Prática</h3>
+
+<ul>
+  <li>✔️ <strong>Identificação rápida de erros comuns:</strong> Um site governamental pode usar essas ferramentas para encontrar rapidamente problemas como falta de legendas em vídeos.</li>
+  <li>✔️ <strong>Sugestões diretas para correção:</strong> Um portal de serviços pode receber sugestões automáticas para corrigir botões invisíveis para leitores de tela.</li>
+  <li>✔️ <strong>Facilidade de integração com fluxos de desenvolvimento:</strong> Empresas de tecnologia podem automatizar testes de acessibilidade como parte de seus processos de CI/CD.</li>
+  <li>✔️ <strong>Conformidade com padrões da WCAG 2.1 e futuras versões:</strong> Sites que seguem essas diretrizes evitam problemas legais e garantem inclusão digital.</li>
+</ul>
+
+<p>Apesar dessas ferramentas serem poderosas, elas <strong>não substituem testes manuais e com usuários reais</strong>. Para um site verdadeiramente acessível, combine auditorias automáticas com testes de usabilidade envolvendo pessoas com deficiência. Exemplo: Após usar uma ferramenta de auditoria, uma empresa pode convidar usuários com deficiência para testar o site e relatar dificuldades que ferramentas automáticas podem não detectar.</p>
+
+
+      <h2 id=\"contrast\">Verificação de Contraste</h2>
+      <p>Ferramentas como o WebAIM Contrast Checker e o plugin WCAG Color Contrast Analyzer ajudam a garantir que o contraste entre o texto e o fundo esteja em conformidade com os padrões WCAG.</p>
+
+      <h2>Ferramentas de Desenvolvedor (DevTools) para Testes de Acessibilidade</h2>
+
+<p>As Ferramentas de Desenvolvedor (DevTools) do Chrome e Firefox são fundamentais para testar e otimizar a acessibilidade em sites. Ambos os navegadores oferecem diversas ferramentas que ajudam a identificar problemas de acessibilidade, testar como diferentes usuários percebem um site e garantir que ele atenda aos critérios de acessibilidade estabelecidos pelas WCAG 2.0. A seguir, destacamos alguns dos recursos mais relevantes:</p>
+
+<h3>1. Árvore de Acessibilidade</h3>
+<p>A Árvore de Acessibilidade exibe a estrutura de um site da maneira como os leitores de tela a percebem. Ela mostra os elementos de uma página web de forma hierárquica, facilitando a verificação de como os elementos são organizados para usuários com deficiência visual. Com a Árvore de Acessibilidade, é possível inspecionar:</p>
+<ul>
+  <li>A ordem de leitura dos elementos.</li>
+  <li>Se os elementos possuem rótulos acessíveis, como <code>aria-label</code> ou texto alternativo.</li>
+  <li>Se os controles interativos estão bem estruturados para navegação por teclado.</li>
+</ul>
+<p>No <strong>Chrome DevTools</strong>, você pode acessar a Árvore de Acessibilidade através da aba "Elements", clicando com o botão direito do mouse em um elemento e selecionando "Inspect Accessibility Properties". No <strong>Firefox</strong>, a ferramenta "Accessibility Inspector" oferece uma visão semelhante.</p>
+
+<h3>2. Simulação de Daltonismo</h3>
+<p>A simulação de daltonismo permite verificar como um site será visualizado por pessoas com diferentes tipos de deficiência de cores, como:</p>
+<ul>
+  <li><strong>Protanopia</strong> (cegueira para o vermelho).</li>
+  <li><strong>Deuteranopia</strong> (cegueira para o verde).</li>
+  <li><strong>Tritanopia</strong> (cegueira para o azul).</li>
+</ul>
+<p>Essas simulações ajudam a testar o contraste de cores e garantir que as informações não dependam apenas de cores para serem compreendidas. No <strong>Chrome DevTools</strong>, a simulação de daltonismo pode ser ativada na aba "Rendering" (Renderização). No <strong>Firefox</strong>, existe uma funcionalidade similar na aba "Accessibility".</p>
+
+<h3>3. Verificação de Atributos ARIA</h3>
+<p>Os atributos <strong>ARIA</strong> (Accessible Rich Internet Applications) são usados para melhorar a acessibilidade de elementos dinâmicos ou complexos, como menus suspensos, carrosséis e formulários interativos. Tanto o <strong>Chrome DevTools</strong> quanto o <strong>Firefox</strong> permitem inspecionar se esses atributos estão sendo usados corretamente, como:</p>
+<ul>
+  <li><code>aria-live</code> para atualizações dinâmicas.</li>
+  <li><code>aria-labelledby</code> e <code>aria-describedby</code> para associar rótulos e descrições.</li>
+  <li><code>role</code> para indicar o propósito de um elemento (ex.: <code>role="button"</code>).</li>
+</ul>
+<p>Ambos os navegadores alertam sobre problemas relacionados ao uso incorreto ou ausência desses atributos, ajudando a garantir que elementos interativos sejam acessíveis para usuários de leitores de tela.</p>
+
+<p>Essas ferramentas são extremamente úteis para desenvolvedores e designers que buscam melhorar a acessibilidade de seus sites. Elas permitem testar e corrigir facilmente problemas sem a necessidade de dispositivos assistivos adicionais, tornando o processo mais ágil e eficaz.</p>
+
+
+      <h2>Testes Manuais de Acessibilidade Web</h2>
+
+<p>No contexto de acessibilidade web, os testes manuais desempenham um papel fundamental, especialmente quando combinados com auditorias automáticas. A ideia é identificar questões que as ferramentas automáticas podem não detectar, garantindo que a experiência do usuário seja otimizada para todos, incluindo pessoas com deficiências. Abaixo estão alguns testes manuais essenciais:</p>
+
+<h3>1. Navegação via Teclado</h3>
+<p>A navegação por teclado é uma das formas mais importantes de garantir a acessibilidade. Usuários com deficiência motora ou visual podem depender exclusivamente do teclado para navegar. Testar a navegação via teclado envolve:</p>
+<ul>
+  <li>Verificar se todos os elementos interativos (links, botões, formulários, etc.) podem ser acessados e manipulados sem a necessidade de um mouse.</li>
+  <li>Verificar a ordem de navegação (tabulação) e se o foco visual está claramente indicado.</li>
+</ul>
+<p>Esse teste assegura que usuários que não podem usar o mouse possam interagir facilmente com o site.</p>
+
+<h3>2. Análise de Código Semântico</h3>
+<p>O uso de código semântico é crucial para garantir que o conteúdo seja compreendido adequadamente por tecnologias assistivas, como leitores de tela. Durante os testes manuais, o desenvolvedor verifica se o HTML está estruturado corretamente, com a semântica adequada, para garantir que os usuários de leitores de tela possam:</p>
+<ul>
+  <li>Navegar de forma clara e eficiente.</li>
+  <li>Compreender o conteúdo sem confusão.</li>
+</ul>
+<p>Elementos como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, entre outros, devem ser usados corretamente para garantir uma estrutura lógica e clara do conteúdo.</p>
+
+<h3>3. Testes de Foco</h3>
+<p>Testar o foco é vital para garantir que, ao navegar via teclado, o foco seja mantido de forma lógica e visível em todos os elementos interativos. Durante os testes de foco, o desenvolvedor deve:</p>
+<ul>
+  <li>Garantir que o foco esteja visível e mantenha a ordem lógica ao navegar entre os elementos interativos.</li>
+  <li>Verificar que, ao abrir ou fechar elementos interativos como modais e menus suspensos, o foco seja transferido corretamente, sem se perder.</li>
+  <li>Testar a navegação em páginas dinâmicas, garantindo que o foco não seja perdido ao carregar novos conteúdos.</li>
+</ul>
+<p>Esses testes são especialmente importantes em sites dinâmicos, onde a navegação e a interação podem ser mais complexas, garantindo que o usuário nunca se perca durante a interação.</p>
+
+<p>Esses testes manuais ajudam a identificar problemas que não seriam capturados apenas com auditorias automáticas, como erros na experiência do usuário que podem afetar a navegação ou a interação em uma página. Quando combinados com ferramentas automáticas de auditoria, esses testes garantem que o site seja realmente acessível para o maior número de pessoas possível.</p>
+
+    <div> `,
+  },
+
   {
     id: "screen-readers",
     title: "Leitores de Tela",
     description: "Boas práticas para garantir compatibilidade com leitores de tela",
     sections: [
-      { id: "aria", title: "Atributos ARIA", level: 1 },
-      { id: "live-regions", title: "Regiões Live", level: 2 },
-      { id: "roles", title: "Roles e Estados", level: 2 },
-      { id: "semantics", title: "HTML Semântico", level: 1 },
-      { id: "headings", title: "Estrutura de Cabeçalhos", level: 2 },
-      { id: "landmarks", title: "Pontos de Referência", level: 2 },
-      { id: "forms", title: "Formulários Acessíveis", level: 1 },
-      { id: "testing", title: "Testando com Leitores de Tela", level: 1 }
+      { id: "screen-readers-accessibility", title: "Leitores de Tela e Acessibilidade", level: 1 },
+      { id: "features", title: "Principais Características dos Leitores de Tela", level: 1 },
+      { id: "text-interpretation", title: "Interpretação de Texto", level: 2 },
+      { id: "semantic-compatibility", title: "Compatibilidade com Marcação Semântica", level: 2 },
+      { id: "alternative-text", title: "Leitura de Alternativas Textuais", level: 2 },
+      { id: "navigation-shortcuts", title: "Atalhos de Navegação", level: 2 },
+      { id: "assistive-devices", title: "Compatibilidade com Dispositivos Assistivos", level: 2 },
+      {
+        id: "best-practices",
+        title: "Boas Práticas para Acessibilidade com Leitores de Tela",
+        level: 1,
+      },
+      { id: "lista", title: "Lista de Leitores de Tela", level: 1 },
+      { id: "nvda", title: "NVDA (NonVisual Desktop Access)", level: 2 },
+      { id: "jaws", title: "JAWS (Job Access With Speech)", level: 2 },
+      { id: "voiceover", title: "VoiceOver", level: 2 },
+      { id: "talkback", title: "TalkBack", level: 2 },
+      { id: "orca", title: "Orca", level: 2 },
     ],
     content: `
-      <h2 id="aria">Atributos ARIA</h2>
-      <p>ARIA (Accessible Rich Internet Applications) é um conjunto de atributos que define maneiras de tornar o conteúdo web mais acessível para pessoas com deficiências. Aqui estão as principais categorias:</p>
+      <h2 id="screen-readers-accessibility">Leitores de Tela e Acessibilidade</h2>
+      <p>Os leitores de tela são ferramentas essenciais para a acessibilidade digital, permitindo que pessoas com deficiência visual ou dificuldades de leitura naveguem em dispositivos eletrônicos. Eles funcionam convertendo o conteúdo da tela em áudio ou braille, possibilitando que usuários interajam com interfaces digitais sem depender da visão.</p>
 
-      <h3 id="live-regions">Regiões Live</h3>
-      <p>Regiões live são áreas da página que são atualizadas dinamicamente e precisam ser anunciadas por leitores de tela:</p>
+      <h2 id="features">Principais Características dos Leitores de Tela</h2>
 
-      <h3 id="roles">Roles e Estados</h3>
-      <p>Use roles para definir o papel de um elemento e estados para informar sua condição atual:</p>
+      <h3 id="text-interpretation">Interpretação de Texto</h3>
+      <ul>
+        <li>Os leitores de tela extraem e vocalizam textos de páginas web, documentos e aplicativos.</li>
+        <li>Permitem navegação por elementos estruturais, como títulos, listas e links.</li>
+      </ul>
 
-      <h2 id="semantics">HTML Semântico</h2>
-      <p>O uso correto de elementos HTML semânticos é fundamental para acessibilidade:</p>
+      <h3 id="semantic-compatibility">Compatibilidade com Marcação Semântica</h3>
+      <ul>
+        <li>Utilizam HTML semântico para identificar corretamente a função de botões, formulários e tabelas.</li>
+        <li>Cabeçalhos bem estruturados (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, etc.) ajudam na navegação eficiente.</li>
+      </ul>
 
-      <h3 id="headings">Estrutura de Cabeçalhos</h3>
-      <p>Mantenha uma hierarquia lógica de cabeçalhos:</p>
+      <h3 id="alternative-text">Leitura de Alternativas Textuais</h3>
+      <ul>
+        <li>Imagens e gráficos devem conter descrições <code>alt</code> para que o leitor possa fornecer contexto ao usuário.</li>
+        <li>Audiodescrição pode complementar a acessibilidade em conteúdos multimídia.</li>
+      </ul>
 
-      <h3 id="landmarks">Pontos de Referência</h3>
-      <p>Use elementos semânticos para definir regiões importantes da página:</p>
+      <h3 id="navigation-shortcuts">Atalhos de Navegação</h3>
+      <ul>
+        <li>Usuários podem pular para seções específicas da página usando atalhos de teclado.</li>
+        <li>Funcionalidades como "pular para o conteúdo principal" evitam repetições desnecessárias.</li>
+      </ul>
 
-      <h2 id="forms">Formulários Acessíveis</h2>
-      <p>Dicas para criar formulários acessíveis:</p>
+      <h3 id="assistive-devices">Compatibilidade com Dispositivos Assistivos</h3>
+      <ul>
+        <li>Leitores de tela podem ser usados em conjunto com teclados adaptados e displays braille.</li>
+        <li>Integram-se a sistemas operacionais, como o Narrador (Windows), VoiceOver (Mac/iOS) e TalkBack (Android).</li>
+      </ul>
 
-      <h2 id="testing">Testando com Leitores de Tela</h2>
-      <p>É importante testar seu site com diferentes leitores de tela:</p>
+      <h2 id="best-practices">Boas Práticas para Acessibilidade com Leitores de Tela</h2>
+      <ul>
+        <li><strong>✅ Evite imagens sem <code>alt</code></strong> – Descreva a função da imagem sempre que for relevante.</li>
+        <li><strong>✅ Use HTML semântico</strong> – Elementos como <code>&lt;button&gt;</code> e <code>&lt;label&gt;</code> melhoram a experiência.</li>
+        <li><strong>✅ Evite apenas cores para indicar informações</strong> – Usuários cegos não percebem diferenças visuais.</li>
+        <li><strong>✅ Ofereça legendas e transcrições</strong> – Essenciais para conteúdos em áudio e vídeo.</li>
+        <li><strong>✅ Teste com leitores de tela</strong> – Ferramentas como NVDA (Windows) e VoiceOver (Mac) ajudam a validar acessibilidade.</li>
+      </ul>
+      <h2 id="lista">Lista de leitores de tela</h2>
+      <p> Lista dos leitores de tela mais comuns 
+      <h3 id="nvda">NVDA (NonVisual Desktop Access)</h3>
+      <ul>
+        <li><strong>Sistema:</strong> Windows</li>
+        <li>Gratuito e de código aberto.</li>
+        <li>Compatível com Chrome, Firefox e Edge.</li>
+        <li>Suporte para displays braille.</li>
+        <li>Leve e eficiente em máquinas menos potentes.</li>
+      </ul>
 
-      <h3>Checklist de Testes</h3>
+      <h3 id="jaws">JAWS (Job Access With Speech)</h3>
+      <ul>
+        <li><strong>Sistema:</strong> Windows</li>
+        <li>Software pago (versão gratuita para educação e testes).</li>
+        <li>Integração avançada com Microsoft Office e navegadores.</li>
+        <li>Suporte para telas sensíveis ao toque.</li>
+        <li>Permite scripts personalizados para automação.</li>
+      </ul>
+
+      <h3 id="voiceover">VoiceOver</h3>
+      <ul>
+        <li><strong>Sistema:</strong> macOS, iOS, iPadOS</li>
+        <li>Integrado aos dispositivos Apple, sem necessidade de instalação.</li>
+        <li>Compatível com Mac, iPhone, iPad e Apple Watch.</li>
+        <li>Suporte para gestos no touchpad e tela sensível ao toque.</li>
+        <li>Leitura de descrições de imagens com IA.</li>
+      </ul>
+
+      <h3 id="talkback">TalkBack</h3>
+      <ul>
+        <li><strong>Sistema:</strong> Android</li>
+        <li>Nativo em dispositivos Android.</li>
+        <li>Controle por gestos na tela sensível ao toque.</li>
+        <li>Feedback por vibração e som para navegação intuitiva.</li>
+        <li>Compatível com teclados físicos e displays braille.</li>
+      </ul>
+
+      <h3 id="orca">Orca</h3>
+      <ul>
+        <li><strong>Sistema:</strong> Linux</li>
+        <li>Gratuito e de código aberto.</li>
+        <li>Compatível com GNOME e algumas distribuições Linux.</li>
+        <li>Suporte para Firefox e Chromium.</li>
+        <li>Personalizável com sintetizadores de voz e braille.</li>
+      </ul>
+
+      <p>Esses leitores de tela tornam a tecnologia mais inclusiva, permitindo a navegação digital independente para todos. 🚀</p>
 
       <div class="bg-muted p-4 rounded-lg mt-4">
-        <h3 class="text-lg font-medium mb-2">Recursos Adicionais</h3>
-        <ul>
-          <li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank">ARIA Authoring Practices Guide (APG)</a></li>
-          <li><a href="https://webaim.org/articles/screenreader_testing/" target="_blank">WebAIM: Testing with Screen Readers</a></li>
+        <h3 class="text-lg font-medium mb-2">Links de acesso:</h3>
+        <ul> 
           <li><a href="https://www.nvaccess.org/" target="_blank">NVDA Screen Reader</a></li>
+          <li><a href="https://www.freedomscientific.com/products/software/jaws/" target="_blank">JAWS</a></li>
+          <li><a href="https://www.apple.com/voiceover/info/guide/_1121.html" target="_blank">VoiceOver</a></li>
+          <li><a href="https://support.google.com/accessibility/android/answer/6283677?hl=en" target="_blank">TalkBack</a></li>
+          <li><a href="https://help.gnome.org/users/orca/stable/index.html.en" target="_blank">Orca Screen Reader</a></li>
         </ul>
       </div>
 
       <div class="bg-muted p-4 rounded-lg mt-4">
         <h3 class="text-lg font-medium mb-2">Dica de Desenvolvimento</h3>
-        <p>Durante o desenvolvimento, use a extensão WAVE (Web Accessibility Evaluation Tool) 
-        do navegador para identificar problemas comuns de acessibilidade e verificar se seus 
-        elementos ARIA estão sendo implementados corretamente.</p>
+        <p>Durante o desenvolvimento, use diferentes ferramentas de leitura de tela para verificar a acessibilidade dos elementos e interações.</p>
       </div>
-    `
+    `,
   },
   {
     id: "dev-guidelines",
     title: "Desenvolvimento Web Acessível",
-    description: "Guia prático para criar sites acessíveis com foco em elementos específicos e exemplos de código",
+    description:
+      "Guia prático para criar sites acessíveis com foco em elementos específicos e exemplos de código",
     sections: [
       { id: "principios", title: "Princípios Fundamentais", level: 1 },
       { id: "design", title: "Design Inclusivo", level: 1 },
@@ -861,10 +1071,10 @@ export const topics = [
       { id: "videos-examples", title: "Exemplos de Implementação", level: 2 },
       { id: "forms", title: "Formulários", level: 1 },
       { id: "forms-examples", title: "Exemplos de Implementação", level: 2 },
-      { id: "testing", title: "Testes de Acessibilidade", level: 1 }
+      { id: "testing", title: "Testes de Acessibilidade", level: 1 },
     ],
     content: `
-      <h1></h1>
+
       <p>Um guia prático para implementar acessibilidade em elementos específicos do seu site.</p>
 
       <h2 id="principios">Princípios Fundamentais</h2>
@@ -943,7 +1153,7 @@ export const topics = [
 
       <h4>HTML Básico</h4>
       <pre><code class="language-html">&lt;!-- Imagem com texto alternativo --&gt;
-&lt;img '
+&lt;img 
   src="/exemplo.jpg" 
   alt="Descrição clara da imagem"
   loading="lazy" 
@@ -1192,6 +1402,6 @@ export function ContactForm() {
           </li>
         </ul>
       </div>
-    `
-  }
+    `,
+  },
 ];
