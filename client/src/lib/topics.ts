@@ -701,6 +701,19 @@ export const topics = [
     content: `
       <h2 id="focus">Gerenciamento de Foco</h2>
       <p>O foco do teclado deve ser sempre visível e seguir uma ordem lógica de navegação. Alguns pontos importantes:</p>
+      
+      <h2 id="browser-shortcuts"> Acessibilidade por Teclado </h2>
+      <p>
+        A navegação por teclado deve ser implementada respeitando os padrões como o WCAG
+        para garantir que os elementos interativos sejam acessíveis por meio da tecla Tab
+        tendo uma sequencia de foco lógica. 
+      <p>
+
+      <p>
+        A navegação por teclado permite que usuários com limitações motoras, deficiências 
+        visuais ou que não utilizam dispositivos apontados, como mouses, interajam com a interface do sistema. 
+      <p>
+      
 
       <h2 id="browser-shortcuts">Atalhos do Navegador</h2>
       <p>Atalhos comuns que funcionam na maioria dos navegadores:</p>
